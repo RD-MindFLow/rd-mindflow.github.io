@@ -1,21 +1,19 @@
 {
-  "name": "jekyll-text-theme",
+  "name": "rd-mindflow",
   "version": "2.2.6",
   "author": "Tian Qi",
   "license": "MIT",
   "keywords": [
-    "jekyll",
-    "jekyll-theme",
-    "jekyll-template"
+    "mindflow"
   ],
-  "homepage": "https://github.com/kitian616/jekyll-TeXt-theme",
-  "description": "A super customizable Jekyll theme for personal site, team site, blog, project, documentation, etc.",
+  "homepage": "https://github.com/RD-MindFLow/rd-mindflow.github.io",
+  "description": "Join MindFlow and ignite the spark of innovation with global technology enthusiasts.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kitian616/jekyll-TeXt-theme.git"
+    "url": "git+https://github.com/RD-MindFLow/rd-mindflow.github.io.git"
   },
   "bugs": {
-    "url": "https://github.com/kitian616/jekyll-TeXt-theme/issues"
+    "url": "https://github.com/RD-MindFLow/rd-mindflow.github.io/issues"
   },
   "scripts": {
     "build": "cross-env JEKYLL_ENV=production bundle exec jekyll build",

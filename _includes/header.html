@@ -9,6 +9,7 @@
       <div class="header__title">
         <div class="header__brand">
           <!-- {%- include svg/logo.svg -%} -->
+          <img style="height: 24px;margin-right: 4px;" src="{{ site.github.url }}/assets/images/logo/logo2.png" alt="{%- if site.title -%}{{ site.title }}{%- endif -%}" />
           {%- assign _paths_root = site.paths.root | default: site.data.variables.default.paths.root  -%}
           {%- include snippets/get-nav-url.html path=_paths_root -%}
           {%- if site.title -%}

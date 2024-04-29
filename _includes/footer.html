@@ -18,18 +18,25 @@
       {%- if _site_author.bio -%}
         <meta itemprop="description" content="{{ _site_author.bio }}">
       {%- endif -%}
-      <div class="footer__author-links">
+      <!-- <div class="footer__author-links">
         {%- include author-links.html author=_site_author -%}
-      </div>
+      </div> -->
     </div>
     {%- include snippets/get-locale-string.html key='COPYRIGHT_DATES' -%}
     {%- assign _locale_copyright_dates = __return -%}
     <div class="site-info mt-2">
+      Team Members:
+      {% for member in site.data.members %}
+      <a href="https://github.com/{{ member.github }}">
+        {{ member.name }}
+      </a>
+      {% endfor %}
       <div>
         {%- include snippets/get-locale-string.html key='COPYRIGHT_DATES' -%}
         {%- assign _locale_copyright_dates = __return -%}
         © {{ site.title }} {{ _locale_copyright_dates }}.
       </div>
+
     </div>
   </div>
 </footer>
