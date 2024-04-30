@@ -126,11 +126,12 @@ comments:
 
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
+  # settings https://github.com/settings/applications/2562462
   gitalk:
     clientID    : e7a44649d21dab38c6a5 # GitHub Application Client ID
     clientSecret: 3af26ec82c9f5b7583495218502c33d8cfc9d534 # GitHub Application Client Secret
     repository  : rd-mindflow.github.io # GitHub repo
-    owner       : RD-MindFLow # GitHub repo owner
+    owner       : tccpc # GitHub repo owner
     admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
       - tccpc
       - 温华
