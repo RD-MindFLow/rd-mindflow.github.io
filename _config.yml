@@ -131,10 +131,11 @@ comments:
     clientID    : c562b4ea1d9300109714 # GitHub Application Client ID
     clientSecret: 2e24e8cd7cbddf18c7fc269ccfc0b2c33eb9210d # GitHub Application Client Secret
     repository  : rd-mindflow.github.io # GitHub repo
-    owner       : RD-MindFLow # GitHub repo owner
+    owner       : tccpc # GitHub repo owner
     admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
       - tccpc
       - RD-MindFLow
+      - 温华
 
   ## Valine
   # please refer to https://valine.js.org/en/ for more info.
