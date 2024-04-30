@@ -1,6 +1,3 @@
-# fe-mindflow.github.io
-曼孚科技
-
 # 撰写文章
 
 ## 创建文章
@@ -29,7 +26,7 @@
 
 在 `---` 之间你可以设置属性的值，key 手动递增即可，tags 为标签，author 为作者。
 
-### 快速发布
+## 快速发布
 熟悉流程后可快速在线发布：https://github.com/RD-MindFLow/rd-mindflow.github.io/new/main/_posts
 
 # 开发
