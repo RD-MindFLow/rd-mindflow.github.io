@@ -133,6 +133,8 @@ comments:
     owner       : RD-MindFLow # GitHub repo owner
     admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
       - tccpc
+      - 温华
+      - RD-MindFLow
 
   ## Valine
   # please refer to https://valine.js.org/en/ for more info.
