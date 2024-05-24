@@ -1,0 +1,2051 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Copy/Paste Detector Report</title><link href="report/styles/tailwind.css" rel="stylesheet"><link href="report/styles/prism.css" rel="stylesheet"></head><body class="bg-gray-100"><header class="bg-white shadow py-4"><div class="container mx-auto px-4"><h1 class="text-3xl font-semibold text-gray-800">jscpd - copy/paste report</h1></div></header><main class="container mx-auto my-8 p-4 bg-white shadow rounded"><section class="mb-8" id="dashboard"><h2 class="text-2xl font-semibold text-gray-700 mb-4">Dashboard</h2><div class="grid grid-cols-4 gap-4"><div class="bg-blue-200 p-4 rounded text-center"><h3 class="text-lg font-semibold text-blue-800 mb-2">Total Files</h3><span class="text-4xl font-bold text-blue-800">529</span></div><div class="bg-green-200 p-4 rounded text-center"><h3 class="text-lg font-semibold text-green-800 mb-2">Total Lines of Code</h3><span class="text-4xl font-bold text-green-800">80862</span></div><div class="bg-yellow-200 p-4 rounded text-center"><h3 class="text-lg font-semibold text-yellow-800 mb-2">Number of Clones</h3><span class="text-4xl font-bold text-yellow-800">62</span></div><div class="bg-red-200 p-4 rounded text-center"><h3 class="text-lg font-semibold text-red-800 mb-2">Duplicated Lines</h3><span class="text-4xl font-bold text-red-800">2042 (2.53%)</span></div></div></section><section class="mb-8" id="formats"><h2 class="text-2xl font-semibold text-gray-700 mb-4">Formats with Duplications</h2><table class="w-full table-auto"><thead><tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"><th class="py-3 px-6 text-left">Format</th><th class="py-3 px-6 text-left">Files</th><th class="py-3 px-6 text-left">Lines</th><th class="py-3 px-6 text-left">Clones</th><th class="py-3 px-6 text-left">Duplicated Lines</th><th class="py-3 px-6 text-left">Duplicated Tokens</th></tr></thead><tbody><tr class="bg-white border-b border-gray-200 text-gray-800 text-sm"><td class="py-3 px-6"><a class="text-blue-600 hover:underline" href="#typescript-clones">typescript</a></td><td class="py-3 px-6">529</td><td class="py-3 px-6">80862</td><td class="py-3 px-6">62</td><td class="py-3 px-6">2042</td><td class="py-3 px-6">17634</td></tr></tbody></table></section><section class="mb-8" id="txt-clones"><a name="typescript-clones"></a><h2 class="text-2xl font-semibold text-gray-700 mb-4">typescript</h2><div class="divide-y divide-gray-200 border-b-2"><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/pointCloud/shapeEditControl/instance/PointGeometryEditControl.ts (Line 125:9 - Line 152:25), src/pages/tool/common/canvasContext/pointCloud/shapeEditControl/instance/RectGeometryEditControl.ts (Line 200:9 - Line 224:8)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn0" onclick="toggleCodeBlock('cloneGroup0', 'expandBtn0', 'collapseBtn0')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn0" onclick="toggleCodeBlock('cloneGroup0', 'expandBtn0', 'collapseBtn0')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup0"><code class="language-typescript text-sm text-gray-800">).then(
+      (relatedCommandList: Array&lt;any&gt;) =&gt; {
+        Array.prototype.push.apply(
+          commandList,
+          HistoryCommandGenerator.getShapeBatchUpdateCommandList(updateOptionList)
+        );
+
+        Array.prototype.push.apply(commandList, relatedCommandList);
+        commandList.push(
+          ...HistoryCommandGenerator.generateGroupUpdateCommandListByUpdatedShape([toShapeData])
+        );
+
+        SpringFramework.executeBatchCommand(commandList).then(() =&gt; {
+          globalEventBus.$emit('updateSelected');
+        });
+      }
+    );
+
+    GlobalSnapControl.reset();
+  }
+
+  private _restoreMeshState() {
+    if (this.currentMesh) {
+      this.currentMesh.runIntersectionDetect = true;
+    }
+  }
+
+  pointGeometryUpdateColor</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/pointCloud/shapeEditControl/instance/PointGeometryEditControl.ts (Line 148:5 - Line 172:14), src/pages/tool/common/canvasContext/pointCloud/shapeEditControl/instance/RectGeometryEditControl.ts (Line 227:5 - Line 251:8)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn1" onclick="toggleCodeBlock('cloneGroup1', 'expandBtn1', 'collapseBtn1')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn1" onclick="toggleCodeBlock('cloneGroup1', 'expandBtn1', 'collapseBtn1')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup1"><code class="language-typescript text-sm text-gray-800">;
+    }
+  }
+
+  pointGeometryUpdateColor(selected: boolean) {
+    if (this.currentMesh) {
+      let color = '#CBC924';
+      if (!selected) {
+        color = this.currentMesh.params.color;
+      }
+      this.currentMesh.material.color.set(color);
+    }
+  }
+
+  enableEdit() {
+    this.canvasContext.renderControl.activeObject = this.currentMesh;
+
+    this.canvasContext.renderControl.transformControls.attach(this.currentMesh);
+
+    this._restoreMeshState();
+
+    this.pointGeometryUpdateColor(true);
+  }
+
+  beforeDestroy</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/pointCloud/shapeEditControl/instance/PointGeometryEditControl.ts (Line 265:5 - Line 305:5), src/pages/tool/common/canvasContext/pointCloud/shapeEditControl/instance/RectGeometryEditControl.ts (Line 416:2 - Line 456:3)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn2" onclick="toggleCodeBlock('cloneGroup2', 'expandBtn2', 'collapseBtn2')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn2" onclick="toggleCodeBlock('cloneGroup2', 'expandBtn2', 'collapseBtn2')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup2"><code class="language-typescript text-sm text-gray-800">;
+    if (this.state === 'preview') {
+      let scenePoint = null;
+      const { snapKeyDown } = useCanvasFrameStore();
+      const { isLangLineCategory } = useTaskManagerStore();
+      /**
+       * 吸附点云模式下， 没有吸附到点云对象
+       * 说明不允许创建关键点
+       * 直接return出去
+       */
+      if (snapKeyDown) {
+        scenePoint = GlobalSnapControl.getSnapPoint();
+        if (!scenePoint) {
+          const { setSnapPointCloudTipBoxHotKey } = useHotkeyBarStore();
+          setSnapPointCloudTipBoxHotKey(true);
+          setTimeout(() =&gt; {
+            setSnapPointCloudTipBoxHotKey(false);
+          }, 3000);
+          return;
+        }
+      } else if (isLangLineCategory &amp;&amp; CurveGeometrySurfaceUtils.isShow &amp;&amp; !snapKeyDown) {
+        scenePoint = this.getScenePoint(event);
+        const nearestPoint = CurveGeometrySurfaceUtils.getNearestPositionFromSurface(scenePoint);
+        scenePoint.z = nearestPoint.z;
+      } else {
+        scenePoint = this.getScenePoint(event);
+        scenePoint.z = this.canvasContext.renderControl.groundZ;
+      }
+
+      this.scenePoint = scenePoint;
+
+      this.handleFinish();
+    } else if (this.state === 'edit') {
+      this.enableRotate = false;
+    }
+
+    GlobalSnapControl.reset();
+  }
+
+  handleMouseMove(event: MouseEvent): any {
+    this</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/pointCloud/shapeEditControl/instance/PointGeometryEditControl.ts (Line 335:13 - Line 356:3), src/pages/tool/common/canvasContext/pointCloud/shapeEditControl/instance/RectGeometryEditControl.ts (Line 145:10 - Line 166:5)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn3" onclick="toggleCodeBlock('cloneGroup3', 'expandBtn3', 'collapseBtn3')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn3" onclick="toggleCodeBlock('cloneGroup3', 'expandBtn3', 'collapseBtn3')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup3"><code class="language-typescript text-sm text-gray-800">;
+    }
+  }
+
+  getGizmoIntersection(event: MouseEvent) {
+    const intersection = {
+      type: '',
+      mesh: null,
+    };
+    if (this.canvasContext.renderControl.transformControls) {
+      const intersectionList = this.raycaster.intersectObjects(
+        this.canvasContext.renderControl.transformControls._gizmo.children.filter(
+          (_: any) =&gt; !_.skipIntersection
+        )
+      );
+
+      if (intersectionList.length &gt; 0) {
+        const intersectionLine = intersectionList[0].object;
+
+        intersection.type = 'assistant';
+        intersection.mesh = intersectionLine;
+        if</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/shape/helper/ImageCanvasCommonRectEditorHelper.ts (Line 5:25 - Line 27:7), src/pages/tool/common/canvasContext/image/shape/helper/ImageCanvasSunShapeEditorHelper.ts (Line 6:23 - Line 27:16)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn4" onclick="toggleCodeBlock('cloneGroup4', 'expandBtn4', 'collapseBtn4')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn4" onclick="toggleCodeBlock('cloneGroup4', 'expandBtn4', 'collapseBtn4')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup4"><code class="language-typescript text-sm text-gray-800">;
+
+  shapeSvg = '';
+
+  shapeEditor = null;
+
+  getPreviewFinishCondition(mouseClickPointList: Array&lt;any&gt;): boolean {
+    return false;
+  }
+
+  getPreviewPointList(mouseClickPointList: Array&lt;any&gt;, cursorPoint: any): Array&lt;any&gt; {
+    return [];
+  }
+
+  render(fabricContext: any, canvasContext: any): void {
+    const renderPointList = fabricContext.pointList.map((point: any) =&gt; {
+      return {
+        x: point.x - fabricContext.left,
+        y: point.y - fabricContext.top,
+      };
+    });
+
+    ImageCanvasPointRender.render</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/shape/helper/ImageCanvasCommonPolygonPointerHelper.ts (Line 6:29 - Line 28:21), src/pages/tool/common/canvasContext/image/shape/helper/ImageCanvasSunShapeEditorHelper.ts (Line 6:23 - Line 27:16)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn5" onclick="toggleCodeBlock('cloneGroup5', 'expandBtn5', 'collapseBtn5')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn5" onclick="toggleCodeBlock('cloneGroup5', 'expandBtn5', 'collapseBtn5')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup5"><code class="language-typescript text-sm text-gray-800">;
+
+  shapeSvg = '';
+
+  shapeEditor = null;
+
+  getPreviewFinishCondition(mouseClickPointList: Array&lt;any&gt;): boolean {
+    return false;
+  }
+
+  getPreviewPointList(mouseClickPointList: Array&lt;any&gt;, cursorPoint: any): Array&lt;any&gt; {
+    return [];
+  }
+
+  render(fabricContext: any, canvasContext: any): void {
+    const renderPointList = fabricContext.pointList.map((point: any) =&gt; {
+      return {
+        x: point.x - fabricContext.left,
+        y: point.y - fabricContext.top,
+      };
+    });
+
+    ImageCanvasPointRender.renderMainImagePoint</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/shape/helper/ImageCanvasCommonCurveEditorHelper.ts (Line 6:26 - Line 29:27), src/pages/tool/common/canvasContext/image/shape/helper/ImageCanvasSunShapeEditorHelper.ts (Line 6:23 - Line 40:14)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn6" onclick="toggleCodeBlock('cloneGroup6', 'expandBtn6', 'collapseBtn6')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn6" onclick="toggleCodeBlock('cloneGroup6', 'expandBtn6', 'collapseBtn6')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup6"><code class="language-typescript text-sm text-gray-800">;
+
+  shapeSvg = '';
+
+  shapeEditor = null;
+
+  getPreviewFinishCondition(mouseClickPointList: Array&lt;any&gt;): boolean {
+    return false;
+  }
+
+  getPreviewPointList(mouseClickPointList: Array&lt;any&gt;, cursorPoint: any): Array&lt;any&gt; {
+    return [];
+  }
+
+  render(fabricContext: any, canvasContext: any): void {
+    const renderPointList = fabricContext.pointList.map((point: any) =&gt; {
+      return {
+        x: point.x - fabricContext.left,
+        y: point.y - fabricContext.top,
+      };
+    });
+
+    ImageCanvasPointRender.render(fabricContext, canvasContext, renderPointList, {
+      rewriteColor: CANVAS_CURVE_CONTROL_COLOR</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/common/historyCommand/instance/CommonHistoryCorrectionAdd.ts (Line 1:1 - Line 23:6), src/pages/tool/common/canvasContext/common/historyCommand/instance/CommonHistoryCorrectionDel.ts (Line 1:1 - Line 22:7)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn7" onclick="toggleCodeBlock('cloneGroup7', 'expandBtn7', 'collapseBtn7')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn7" onclick="toggleCodeBlock('cloneGroup7', 'expandBtn7', 'collapseBtn7')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup7"><code class="language-typescript text-sm text-gray-800">import { AbstractCanvasContext } from '@context/AbstractCanvasContext';
+import { AbstractHistoryCommand } from '@context/common/historyCommand/AbstractHistoryCommand';
+import { AbstractHistoryCommandOptions } from '@context/common/historyCommand/AbstractHistoryCommandOptions';
+import { CanvasHistoryCommandEnum } from '@context/common/historyCommand/CanvasHistoryCommandEnum';
+import { ImageShapeTypeEnum } from '@context/image/shape/AbstractImageCanvasShape';
+import { PointCloudShapeTypeEnum } from '@context/pointCloud/shape/AbstractShape';
+import lodash from 'lodash';
+
+import useCorrectionIndex from '@/hooks/useCorrectionIndex';
+import { FrameDataUpdateManager } from '@/pages/tool/common/frameData/frameDataUpdateManager';
+import {
+  AttrScope,
+  CorrectionStatusEnum,
+} from '@/pages/tool/common/global/correctionControl/enums/correctionEnums';
+import { GlobalCorrectionControl } from '@/pages/tool/common/global/correctionControl/GlobalCorrectionControl';
+import { LabelCorrectionDatabase } from '@/pages/tool/common/global/database/instance/LabelCorrectionDatabase';
+import { LabelResultDatabase } from '@/pages/tool/common/global/database/instance/LabelResultDatabase';
+import { GlobalDataSaveControl } from '@/pages/tool/common/global/dataSaveControl/GlobalDataSaveControl';
+import { AbstractShapeData } from '@/pages/tool/common/global/types/AbstractShapeData';
+import { SpringFramework } from '@/pages/tool/common/SpringFramework';
+import { globalEventBus } from '@/plugin/globalEventBus';
+
+const</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/global/keyboard/drawObject/DrawTool.ts (Line 10:2 - Line 31:18), src/pages/tool/common/global/keyboard/labelCorrection/MissingSelectTool.ts (Line 6:2 - Line 27:27)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn8" onclick="toggleCodeBlock('cloneGroup8', 'expandBtn8', 'collapseBtn8')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn8" onclick="toggleCodeBlock('cloneGroup8', 'expandBtn8', 'collapseBtn8')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup8"><code class="language-typescript text-sm text-gray-800">extends AbstractKeyboardEvent {
+  altKey = false;
+
+  ctrlKey = false;
+
+  metaKey = false;
+
+  shiftKey = false;
+
+  keyCode = [
+    KeyboardCodeEnum.KEY_CODE_1,
+    KeyboardCodeEnum.KEY_CODE_2,
+    KeyboardCodeEnum.KEY_CODE_3,
+    KeyboardCodeEnum.KEY_CODE_4,
+    KeyboardCodeEnum.KEY_CODE_5,
+    KeyboardCodeEnum.KEY_CODE_6,
+    KeyboardCodeEnum.KEY_CODE_7,
+    KeyboardCodeEnum.KEY_CODE_8,
+    KeyboardCodeEnum.KEY_CODE_9,
+  ];
+
+  methods = 'drawToolKeyDown'</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/global/dataSaveControl/instance/ProDataSaveControl.ts (Line 536:13 - Line 557:2), src/pages/tool/common/global/dataSaveControl/instance/ProDataSaveControl.ts (Line 329:17 - Line 351:6)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn9" onclick="toggleCodeBlock('cloneGroup9', 'expandBtn9', 'collapseBtn9')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn9" onclick="toggleCodeBlock('cloneGroup9', 'expandBtn9', 'collapseBtn9')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup9"><code class="language-typescript text-sm text-gray-800">});
+            let errCount = 0;
+            if (taskList.length) {
+              SpringFramework.taskScheduler
+                .push(taskList, false)
+                .then((data: any) =&gt; {
+                  data?.res.forEach((item: any) =&gt; {
+                    if (item.err) errCount++;
+                  });
+                  if (errCount) {
+                    // eslint-disable-next-line prefer-promise-reject-errors
+                    reject(
+                      i18nT('objectPointCloudDataUploadFailed', {
+                        errCount,
+                      })
+                    );
+                  } else resolve(data);
+                })
+                .catch((err: any) =&gt; {
+                  reject(err);
+                });
+            }</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/pointCloud/shape/BoxGeometry.ts (Line 1:1 - Line 34:21), src/pages/tool/common/canvasContext/pointCloud/shape/RectGeometry.ts (Line 1:1 - Line 34:21)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn10" onclick="toggleCodeBlock('cloneGroup10', 'expandBtn10', 'collapseBtn10')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn10" onclick="toggleCodeBlock('cloneGroup10', 'expandBtn10', 'collapseBtn10')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup10"><code class="language-typescript text-sm text-gray-800">import {
+  AbstractPointCloudCanvasShape,
+  PointCloudShapeTypeEnum,
+} from '@context/pointCloud/shape/AbstractShape';
+import {
+  ArrowHelper,
+  BoxGeometry,
+  ConeGeometry,
+  CylinderGeometry,
+  DoubleSide,
+  EdgesGeometry,
+  Line,
+  LineBasicMaterial,
+  LineDashedMaterial,
+  LineSegments,
+  Mesh,
+  MeshBasicMaterial,
+  PlaneGeometry,
+  Vector3,
+} from 'three';
+import { CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRenderer.js';
+
+import { createCorrectBall } from '@/pages/tool/common/canvasContext/pointCloud/CorrectControl';
+import { PointCloudLabelUtils } from '@/pages/tool/common/canvasContext/pointCloud/utils/PointCloudLabelUtils';
+import { LabelResultDatabase } from '@/pages/tool/common/global/database/instance/LabelResultDatabase';
+import { PointCloudShapeData } from '@/pages/tool/common/global/types/AbstractShapeData';
+import { IPoint3d } from '@/pages/tool/common/global/types/Point';
+import { SpringFramework } from '@/pages/tool/common/SpringFramework';
+import { AttributeUtils } from '@/utils/AttributeUtils';
+import { getRealWidthByText } from '@/utils/index';
+
+import {
+  AI_NAME_KEY,
+  ASSIST_MESH_NAME_KEY</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/pointCloud/shape/BoxGeometry.ts (Line 42:12 - Line 80:2), src/pages/tool/common/canvasContext/pointCloud/shape/RectGeometry.ts (Line 42:13 - Line 80:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn11" onclick="toggleCodeBlock('cloneGroup11', 'expandBtn11', 'collapseBtn11')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn11" onclick="toggleCodeBlock('cloneGroup11', 'expandBtn11', 'collapseBtn11')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup11"><code class="language-typescript text-sm text-gray-800">;
+
+  shapeSvg =
+    '&lt;svg id=&quot;msicon-dbox&quot; viewBox=&quot;0 0 1029 1024&quot;&gt;&lt;path d=&quot;M290.730853 0L33.050328 250.398249 0 282.888403v741.111597h738.870897l32.490153-32.490153 258.240701-255.439825V0z m373.636762 912.525164H111.474836V361.873085h550.652079z m33.050328-662.126915h-504.157549l140.603939-138.923413h504.157549z m224.070022 438.617068l-144.525164 144.525164v-504.157549l141.164114-141.164114z&quot;  &gt;&lt;/path&gt;&lt;/svg&gt;';
+
+  assistantShapeName = '';
+
+  // 绘制车头面
+  drawGeometryHead(geometrySize: IPoint3d, color: string) {
+    const geometry = new PlaneGeometry(geometrySize.z, geometrySize.y);
+    const material = new MeshBasicMaterial({
+      color,
+      side: DoubleSide,
+      transparent: true,
+      opacity: 0.6,
+    });
+    const headPlane = new Mesh(geometry, material);
+    headPlane.rotateY(Math.PI / 2);
+    headPlane.position.x = geometrySize.x / 2;
+    headPlane.name = 'viewHeader';
+    return headPlane;
+  }
+
+  // 绘制箭头
+  drawGeometryArrow(geometrySize: IPoint3d) {
+    const dir = new Vector3(1, 0, 0);
+    const origin = new Vector3(0, 0, -geometrySize.z / 2 + 0.1);
+    origin.x = -geometrySize.x / 4;
+
+    const length = geometrySize.x * 0.5;
+    const width = 0.3 * length;
+    const hex = 0xffff44;
+    const arrowHelper = new ArrowHelper(dir, origin, length, hex, 0.5 * length, width);
+    arrowHelper.name = 'viewArrow';
+    return arrowHelper;
+  }
+
+  // 绘制车头朝向柱
+  drawGeometryCylinder(color: string)</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/pointCloud/shape/BoxGeometry.ts (Line 91:2 - Line 121:2), src/pages/tool/common/canvasContext/pointCloud/shape/RectGeometry.ts (Line 91:5 - Line 121:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn12" onclick="toggleCodeBlock('cloneGroup12', 'expandBtn12', 'collapseBtn12')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn12" onclick="toggleCodeBlock('cloneGroup12', 'expandBtn12', 'collapseBtn12')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup12"><code class="language-typescript text-sm text-gray-800">;
+    cylinder.name = 'viewArrow';
+    return cylinder;
+  }
+
+  getExistShape(pointCloudShapeData: PointCloudShapeData) {
+    const { uuid } = pointCloudShapeData;
+    const ctx = SpringFramework.getMainCanvasContext();
+    return ctx.findShape(uuid);
+  }
+
+  /**
+   * 绘制带方向的长方体
+   * @param size 长方体尺寸
+   * @param options 长方体的配置
+   * @param geometryProps 长方体的属性
+   * @returns {Mesh}
+   */
+  generateShape(pointCloudShapeData: PointCloudShapeData) {
+    // 正常创建框
+    const initSize: IPoint3d = {
+      x: 1,
+      y: 1,
+      z: 1,
+    };
+    const { unSegmentation } = pointCloudShapeData;
+    const { color, position, rotation, size } = pointCloudShapeData.geometry;
+    // 绘制有边的长方体
+    const geometry = new BoxGeometry(initSize.x, initSize.y, initSize.z);
+    const material = new MeshBasicMaterial({
+      color,</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/pointCloud/shape/BoxGeometry.ts (Line 136:6 - Line 211:2), src/pages/tool/common/canvasContext/pointCloud/shape/RectGeometry.ts (Line 142:9 - Line 217:15)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn13" onclick="toggleCodeBlock('cloneGroup13', 'expandBtn13', 'collapseBtn13')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn13" onclick="toggleCodeBlock('cloneGroup13', 'expandBtn13', 'collapseBtn13')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup13"><code class="language-typescript text-sm text-gray-800">);
+      cube.add(cylinder);
+      const headPlane = this.drawGeometryHead(initSize, color);
+      cube.add(headPlane);
+    }
+    (cube as any).drawType = DIMENSION_NAME_KEY;
+    if (pointCloudShapeData.uuid) {
+      const label = PointCloudLabelUtils.drawGeometryLabel(
+        color,
+        pointCloudShapeData.uuid,
+        pointCloudShapeData
+      );
+      if (label) {
+        cube.add(label);
+      }
+    }
+
+    // 根据后台返回数据初始化
+    if (position) {
+      const { x, y, z } = position;
+      cube.position.set(x, y, z);
+    }
+    if (rotation) {
+      const { x, y, z } = rotation;
+      cube.rotation.set(x, y, z);
+    } else {
+      const canvasContext = SpringFramework.getMainCanvasContext();
+      const angle = canvasContext.renderControl.orbitControl.getAzimuthalAngle();
+      cube.rotateZ(angle);
+    }
+    cube.scale.set(size.x, size.y, size.z);
+
+    // this.generateObjectMissingPoint(pointCloudShapeData, cube);
+    return cube;
+  }
+
+  generateObjectMissingPoint(pointCloudShapeData: PointCloudShapeData, cube: any) {
+    const ball = createCorrectBall(pointCloudShapeData);
+    if (ball) {
+      cube.add(ball);
+    }
+  }
+
+  generateDashedShape(pointCloudShapeData: PointCloudShapeData, type?: string) {
+    const { color, position, rotation, size } = pointCloudShapeData.geometry;
+    // 绘制虚线边的长方体
+    const geometry = new BoxGeometry(size.x, size.y, size.z);
+    const material = new MeshBasicMaterial({
+      color,
+      transparent: true,
+      opacity: 0,
+      side: DoubleSide,
+      depthTest: true,
+      depthWrite: false,
+    });
+    const cube = new Mesh(geometry, material);
+
+    // 绘制虚线的边
+    const edges = new EdgesGeometry(geometry);
+    const line = new LineSegments(
+      edges,
+      new LineDashedMaterial({ color, dashSize: 0.2, gapSize: 0.2 })
+    );
+    line.computeLineDistances();
+    line.name = 'viewLine';
+    cube.add(line);
+    const headPlane = this.drawGeometryHead(size, color);
+    cube.add(headPlane);
+    if (type === 'AI') {
+      (cube as any).drawType = AI_NAME_KEY;
+      cube.add(this.createAiTitle(color));
+    } else {
+      (cube as any).drawType = TRACK_NAME_KEY;
+    }
+
+    (</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/pointCloud/shape/BoxGeometry.ts (Line 213:5 - Line 248:6), src/pages/tool/common/canvasContext/pointCloud/shape/RectGeometry.ts (Line 159:5 - Line 247:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn14" onclick="toggleCodeBlock('cloneGroup14', 'expandBtn14', 'collapseBtn14')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn14" onclick="toggleCodeBlock('cloneGroup14', 'expandBtn14', 'collapseBtn14')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup14"><code class="language-typescript text-sm text-gray-800">// 根据后台返回数据初始化
+    if (position) {
+      const { x, y, z } = position;
+      cube.position.set(x, y, z);
+    }
+    if (rotation) {
+      const { x, y, z } = rotation;
+      cube.rotation.set(x, y, z);
+    }
+    cube.scale.set(1, 1, 1);
+    return cube;
+  }
+
+  createAiTitle = (color: string) =&gt; {
+    const correctBallDiv = document.createElement('div');
+    correctBallDiv.className = 'ai-pre-labeling';
+    correctBallDiv.style.border = `2px solid ${color}`;
+    correctBallDiv.style.background = `linear-gradient(90deg, ${color}70 0%, ${color}12 100%)`;
+
+    const span = document.createElement('span');
+    span.className = 'ball-num';
+    span.textContent = 'AI';
+    correctBallDiv.appendChild(span);
+
+    correctBallDiv.style.pointerEvents = 'none';
+    const correctBall = new CSS2DObject(correctBallDiv);
+    correctBall.position.set(0, 0, 0);
+    correctBall.layers.set(0);
+    return correctBall;
+  };
+
+  /**
+   * 绘制三视图辅助框
+   * @param pointCloudShapeData 相关数据
+   * @returns {Mesh}
+   */</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/shapeEditor/ImageCanvasCommonRectShapeEditor.ts (Line 395:5 - Line 418:5), src/pages/tool/common/canvasContext/image/shapeEditor/ImageCanvasCommonRectShapeEditor.ts (Line 290:5 - Line 313:3)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn15" onclick="toggleCodeBlock('cloneGroup15', 'expandBtn15', 'collapseBtn15')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn15" onclick="toggleCodeBlock('cloneGroup15', 'expandBtn15', 'collapseBtn15')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup15"><code class="language-typescript text-sm text-gray-800">let canvasScale = 1;
+
+    if (this.canvasShape.canvas) {
+      canvasScale = 1 / this.canvasShape.canvas.getZoom();
+    }
+
+    const hoverPointIndex = this.controlPointList.findIndex((shapePoint: Point) =&gt;
+      ImageShapeUtils.isMouseHoverPoint(
+        point,
+        shapePoint,
+        IMAGE_CANVAS_SHAPE_SELECTION_TOLERANCE * canvasScale
+      )
+    );
+
+    const hoverBorderIndex = this.controlBorderList.findIndex((shapeBorder: any) =&gt;
+      ImageShapeUtils.isPointOverLine(
+        point,
+        shapeBorder.startPoint,
+        shapeBorder.endPoint,
+        IMAGE_CANVAS_SHAPE_SELECTION_TOLERANCE * canvasScale
+      )
+    );
+
+    this</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/shapeEditor/ImageCanvasCommonCuboidShapeEditorForImage.ts (Line 393:12 - Line 416:5), src/pages/tool/common/canvasContext/image/shapeEditor/ImageCanvasCommonCuboidShapeEditorForImage.ts (Line 368:14 - Line 389:10)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn16" onclick="toggleCodeBlock('cloneGroup16', 'expandBtn16', 'collapseBtn16')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn16" onclick="toggleCodeBlock('cloneGroup16', 'expandBtn16', 'collapseBtn16')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup16"><code class="language-typescript text-sm text-gray-800">;
+
+      const newPointList = pointIndexList.map(
+        (cpointIndex: number) =&gt; this.originPointList[cpointIndex]
+      );
+
+      const { offsetX: newOffsetX, offsetY: newOffsetY } = this.shapeEditProxy.pointListSnapEdge(
+        this.canvasShape,
+        this.canvasContext,
+        newPointList,
+        offsetX,
+        offsetY
+      );
+
+      pointIndexList.forEach((cPointIndex: number) =&gt; {
+        const cPoint = this.canvasShape.pointList[cPointIndex];
+        const originPoint = this.originPointList[cPointIndex];
+        cPoint.x = originPoint.x + newOffsetX;
+        cPoint.y = originPoint.y + newOffsetY;
+      });
+
+      this.shapeEditProxy.update();
+      this.initControlList();
+    } else if (this.mode === ImageShapeEditorModeEnum.MOVE</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/shapeEditor/ImageCanvasCommonCuboidShapeEditor.ts (Line 876:2 - Line 896:17), src/pages/tool/common/canvasContext/image/shapeEditor/ImageCanvasCommonCuboidShapeEditor.ts (Line 667:16 - Line 687:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn17" onclick="toggleCodeBlock('cloneGroup17', 'expandBtn17', 'collapseBtn17')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn17" onclick="toggleCodeBlock('cloneGroup17', 'expandBtn17', 'collapseBtn17')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup17"><code class="language-typescript text-sm text-gray-800">;
+
+    if (this.faceType === 'front') {
+      // 前面
+      hoverPointIndex = frontControlPointList.findIndex((shapePoint: Point) =&gt;
+        ImageShapeUtils.isMouseHoverPoint(
+          point,
+          shapePoint,
+          IMAGE_CANVAS_SHAPE_SELECTION_TOLERANCE * canvasScale
+        )
+      );
+      hoverBorderIndex = frontControlBorderList.findIndex((shapeBorder: any) =&gt;
+        ImageShapeUtils.isPointOverLine(
+          point,
+          shapeBorder.startPoint,
+          shapeBorder.endPoint,
+          IMAGE_CANVAS_SHAPE_SELECTION_TOLERANCE * canvasScale
+        )
+      );
+      faceBoundingBox = frontBoundingBox;
+      controlPointList</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/shape/ImageCanvasSunShapeBox.ts (Line 317:2 - Line 339:16), src/pages/tool/common/canvasContext/image/shape/ImageCanvasSunShapeBox.ts (Line 253:2 - Line 276:3)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn18" onclick="toggleCodeBlock('cloneGroup18', 'expandBtn18', 'collapseBtn18')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn18" onclick="toggleCodeBlock('cloneGroup18', 'expandBtn18', 'collapseBtn18')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup18"><code class="language-typescript text-sm text-gray-800">;
+
+      if (frontPointList.length &gt; 0) {
+        ImageCanvasLineRender.renderSunShapeLine(
+          fabricContext,
+          canvasContext,
+          frontPointList,
+          options
+        );
+      }
+
+      if (backPointList.length &gt; 0) {
+        ImageCanvasLineRender.renderSunShapeLine(
+          fabricContext,
+          canvasContext,
+          [frontPointList[2], ...backPointList],
+          {
+            color: options.color,
+            closePath: false,
+          }
+        );
+      }
+      ImageLabelUtils</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/shape/ImageCanvasSunShapeBox.ts (Line 361:7 - Line 382:7), src/pages/tool/common/canvasContext/image/shape/ImageCanvasSunShapeBox.ts (Line 315:10 - Line 272:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn19" onclick="toggleCodeBlock('cloneGroup19', 'expandBtn19', 'collapseBtn19')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn19" onclick="toggleCodeBlock('cloneGroup19', 'expandBtn19', 'collapseBtn19')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup19"><code class="language-typescript text-sm text-gray-800">: true,
+    };
+    fabricContext.sequence = getSequence(renderPointList);
+
+    if (frontPointList.length &gt; 0) {
+      ImageCanvasLineRender.renderSunShapeLine(
+        fabricContext,
+        canvasContext,
+        frontPointList,
+        options
+      );
+    }
+
+    if (backPointList.length &gt; 0) {
+      ImageCanvasLineRender.renderSunShapeLine(
+        fabricContext,
+        canvasContext,
+        [frontPointList[2], ...backPointList],
+        {
+          color: options.color,
+          closePath: false,
+          dashed</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/shape/ImageCanvasRect2DBox.ts (Line 30:5 - Line 65:7), src/pages/tool/common/canvasContext/image/shape/ImageCanvasRectBox.ts (Line 29:5 - Line 64:16)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn20" onclick="toggleCodeBlock('cloneGroup20', 'expandBtn20', 'collapseBtn20')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn20" onclick="toggleCodeBlock('cloneGroup20', 'expandBtn20', 'collapseBtn20')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup20"><code class="language-typescript text-sm text-gray-800">if (settingRectSnapCanvas.value &amp;&amp; canvasInstance) {
+      const canvasWidth = canvasInstance._objects[0].width;
+      const canvasHeight = canvasInstance._objects[0].height;
+
+      if (mouseClickPointList[0].x &lt; 0) {
+        mouseClickPointList[0].x = 0;
+      } else if (mouseClickPointList[0].x &gt; canvasWidth) {
+        mouseClickPointList[0].x = canvasWidth;
+      }
+      if (mouseClickPointList[0].y &lt; 0) {
+        mouseClickPointList[0].y = 0;
+      } else if (mouseClickPointList[0].y &gt; canvasHeight) {
+        mouseClickPointList[0].y = canvasHeight;
+      }
+
+      if (cursorPoint.x &lt; 0) {
+        cursorPoint.x = 0.1;
+      } else if (cursorPoint.x &gt; canvasWidth) {
+        cursorPoint.x = canvasWidth - 0.1;
+      }
+      if (cursorPoint.y &lt; 0) {
+        cursorPoint.y = 0;
+      } else if (cursorPoint.y &gt; canvasHeight) {
+        cursorPoint.y = canvasHeight;
+      }
+    }
+
+    return [mouseClickPointList[0], cursorPoint];
+  }
+
+  getPreviewFinishCondition(mouseClickPointList: Array&lt;any&gt;) {
+    return mouseClickPointList.length === 2;
+  }
+
+  render(fabricContext: any, canvasContext: any) {
+    const { params</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/shape/ImageCanvasRect2DBox.ts (Line 138:9 - Line 163:7), src/pages/tool/common/canvasContext/image/shape/selection/ImageCanvasSelectionRectBox.ts (Line 29:7 - Line 101:9)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn21" onclick="toggleCodeBlock('cloneGroup21', 'expandBtn21', 'collapseBtn21')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn21" onclick="toggleCodeBlock('cloneGroup21', 'expandBtn21', 'collapseBtn21')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup21"><code class="language-typescript text-sm text-gray-800">(fabricContext: any, canvasContext: any) {
+    const pointList = [
+      { x: 0, y: 0 },
+      { x: fabricContext.width, y: 0 },
+      { x: fabricContext.width, y: fabricContext.height },
+      { x: 0, y: fabricContext.height },
+    ];
+    const { canvasMode, maskPercent } = useCanvasStateStore();
+    let resetFillColor = '';
+
+    // mask模式根据mask百分比修改透明度
+    if (canvasMode === 'mask') {
+      resetFillColor = colorToRGB(fabricContext.params.color, maskPercent / 100);
+    } else if (fabricContext.selected) {
+      resetFillColor = colorToRGB(fabricContext.params.color, IMAGE_SHAPE_SELECTED_TRANSPARENT);
+    } else if (fabricContext.isHover) {
+      resetFillColor = colorToRGB(fabricContext.params.color, IMAGE_SHAPE_HOVER_TRANSPARENT);
+    } else {
+      resetFillColor = colorToRGB(fabricContext.params.color, 0);
+    }
+
+    canvasContext.save();
+    ImageCanvasLineRender.render(fabricContext, canvasContext, pointList, {
+      color: fabricContext.params.color,
+      closePath: true,
+      resetStrokeColor: fabricContext.params</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/shape/ImageCanvasAssistCurveBox.ts (Line 15:15 - Line 35:2), src/pages/tool/common/canvasContext/image/shape/ImageCanvasDashedCurveBox.ts (Line 15:15 - Line 35:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn22" onclick="toggleCodeBlock('cloneGroup22', 'expandBtn22', 'collapseBtn22')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn22" onclick="toggleCodeBlock('cloneGroup22', 'expandBtn22', 'collapseBtn22')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup22"><code class="language-typescript text-sm text-gray-800">;
+
+  shapeSvg =
+    '&lt;svg id=&quot;msicon-quxian_huaban1&quot; viewBox=&quot;0 0 1024 1024&quot;&gt;&lt;path d=&quot;M786.432 970.752c-188.416 0-241.664-225.28-290.816-446.464-40.96-176.128-81.92-356.352-176.128-356.352-131.072 0-196.608 405.504-204.8 679.936 0 32.768-24.576 57.344-57.344 57.344-32.768 0-57.344-24.576-57.344-57.344 4.096-131.072 32.768-790.528 319.488-790.528 188.416 0 237.568 225.28 286.72 442.368 40.96 176.128 81.92 356.352 180.224 356.352 86.016 0 118.784-192.512 122.88-286.72 0-32.768 28.672-53.248 57.344-57.344 32.768 0 57.344 24.576 57.344 57.344-4.096 40.96-16.384 401.408-237.568 401.408z&quot;  &gt;&lt;/path&gt;&lt;/symbol&gt;';
+
+  getPreviewPointList(mouseClickPointList: Array&lt;any&gt;, cursorPoint: any): Array&lt;any&gt; {
+    const arr: Array&lt;any&gt; = [];
+    Array.prototype.push.apply(arr, mouseClickPointList);
+    arr.push(cursorPoint);
+
+    return arr;
+  }
+
+  getPreviewFinishCondition(mouseClickPointList: Array&lt;any&gt;): boolean {
+    // todo
+    return mouseClickPointList.length === 5;
+  }
+
+  render(fabricContext: any, canvasContext: any) {
+    const { can2DObjectShow } = useEditorStore();
+    const { show }</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/render/ImageCanvasCircleRender.ts (Line 167:5 - Line 191:8), src/pages/tool/common/canvasContext/image/render/ImageCanvasCircleRender.ts (Line 76:5 - Line 99:6)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn23" onclick="toggleCodeBlock('cloneGroup23', 'expandBtn23', 'collapseBtn23')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn23" onclick="toggleCodeBlock('cloneGroup23', 'expandBtn23', 'collapseBtn23')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup23"><code class="language-typescript text-sm text-gray-800">const zoom = fabricContext.canvas.getZoom();
+
+    context.fillStyle = color;
+
+    if (!fabricContext.originWidth) {
+      fabricContext.originWidth = fabricContext.width;
+      fabricContext.originHeight = fabricContext.height;
+    }
+    fabricContext.set('width', fabricContext.originWidth / zoom);
+    fabricContext.set('height', fabricContext.originHeight / zoom);
+
+    context.beginPath();
+    context.arc(
+      fabricContext.width / 2,
+      fabricContext.height / 2,
+      fabricContext.width / 2,
+      0,
+      Math.PI * 2
+    );
+
+    context.fill();
+
+    const fontSize = 12;
+
+    context</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/algorithm/image/imageMapping/ImageMappingAlgo.ts (Line 11:2 - Line 49:2), src/pages/tool/common/canvasContext/image/plugin/shape/ImagePluginCubicHelper.ts (Line 233:2 - Line 273:16)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn24" onclick="toggleCodeBlock('cloneGroup24', 'expandBtn24', 'collapseBtn24')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn24" onclick="toggleCodeBlock('cloneGroup24', 'expandBtn24', 'collapseBtn24')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup24"><code class="language-typescript text-sm text-gray-800">{
+  const rightMatrixRowLength = rightMatrix.length;
+
+  for (let i = 0; i &lt; leftMatrix.length; i++) {
+    const leftMatrixRow = leftMatrix[i];
+    if (leftMatrixRow.length !== rightMatrixRowLength) {
+      console.error('矩阵不匹配');
+      return null;
+    }
+  }
+
+  const resultRows = leftMatrix.length;
+  const resultColumns = rightMatrix[0].length;
+
+  // 计算点积
+  const result = [];
+  for (let i = 0; i &lt; resultRows; i++) {
+    for (let j = 0; j &lt; resultColumns; j++) {
+      let sum = 0;
+      leftMatrix[i].forEach((rowValue, rowIndex) =&gt; {
+        sum += rowValue * rightMatrix[rowIndex][j];
+      });
+
+      result.push(sum);
+    }
+  }
+
+  // 切分数据
+  const returnResult = [];
+  for (let i = 0; i &lt; resultRows; i++) {
+    returnResult.push(
+      result.filter(
+        (item, itemIndex) =&gt; itemIndex &gt;= i * resultColumns &amp;&amp; itemIndex &lt; (i + 1) * resultColumns
+      )
+    );
+  }
+
+  return returnResult;
+};</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/validator/instance/GroupUniqChildValidator.ts (Line 15:3 - Line 39:3), src/pages/tool/common/validator/instance/MarkToolRequiredValidator.ts (Line 14:3 - Line 37:50)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn25" onclick="toggleCodeBlock('cloneGroup25', 'expandBtn25', 'collapseBtn25')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn25" onclick="toggleCodeBlock('cloneGroup25', 'expandBtn25', 'collapseBtn25')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup25"><code class="language-typescript text-sm text-gray-800">// 声明依赖
+  relatedCommandList = [
+    CanvasHistoryCommandEnum.UPDATE_GROUP_TOOL,
+    CanvasHistoryCommandEnum.ADD,
+    CanvasHistoryCommandEnum.DELETE,
+    CanvasHistoryCommandEnum.UPDATE_SHAPE_ATTRIBUTE,
+    CanvasHistoryCommandEnum.UPDATE_GLOBAL_ATTRIBUTE,
+    CanvasHistoryCommandEnum.UPDATE_TRACK_ID,
+    CanvasHistoryCommandEnum.CREATE_FROM_AI,
+    CanvasHistoryCommandEnum.UPDATE_SHAPE_TYPE,
+    CanvasHistoryCommandEnum.GROUP_DELETE,
+    CanvasHistoryCommandEnum.GROUP_DELETE_ALL,
+    CanvasHistoryCommandEnum.GROUP_CREATE_PASTE,
+    CanvasHistoryCommandEnum.PASTE,
+    CanvasHistoryCommandEnum.BOOLEAN_OPERATION,
+    CanvasHistoryCommandEnum.GROUP_CREATE,
+    CanvasHistoryCommandEnum.GROUP_REMOVE_ITEM,
+    CanvasHistoryCommandEnum.GROUP_APPEND_ITEM,
+    CanvasHistoryCommandEnum.GROUP_CHILDREN_UPDATE,
+  ];
+
+  execute(validateTask: ValidateTask, validatorMap: Map&lt;string, any&gt;) {
+    const item = LabelResultDatabase.findByUUID(validateTask.uuid);
+
+    if</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/validator/instance/GroupChildrenTypeValidator.ts (Line 15:3 - Line 45:14), src/pages/tool/common/validator/instance/MarkToolRequiredValidator.ts (Line 14:3 - Line 45:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn26" onclick="toggleCodeBlock('cloneGroup26', 'expandBtn26', 'collapseBtn26')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn26" onclick="toggleCodeBlock('cloneGroup26', 'expandBtn26', 'collapseBtn26')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup26"><code class="language-typescript text-sm text-gray-800">// 声明依赖
+  relatedCommandList = [
+    CanvasHistoryCommandEnum.UPDATE_GROUP_TOOL,
+    CanvasHistoryCommandEnum.ADD,
+    CanvasHistoryCommandEnum.DELETE,
+    CanvasHistoryCommandEnum.UPDATE_SHAPE_ATTRIBUTE,
+    CanvasHistoryCommandEnum.UPDATE_GLOBAL_ATTRIBUTE,
+    CanvasHistoryCommandEnum.UPDATE_TRACK_ID,
+    CanvasHistoryCommandEnum.CREATE_FROM_AI,
+    CanvasHistoryCommandEnum.UPDATE_SHAPE_TYPE,
+    CanvasHistoryCommandEnum.GROUP_DELETE,
+    CanvasHistoryCommandEnum.GROUP_DELETE_ALL,
+    CanvasHistoryCommandEnum.GROUP_CREATE_PASTE,
+    CanvasHistoryCommandEnum.PASTE,
+    CanvasHistoryCommandEnum.BOOLEAN_OPERATION,
+    CanvasHistoryCommandEnum.GROUP_CREATE,
+    CanvasHistoryCommandEnum.GROUP_REMOVE_ITEM,
+    CanvasHistoryCommandEnum.GROUP_APPEND_ITEM,
+    CanvasHistoryCommandEnum.GROUP_CHILDREN_UPDATE,
+  ];
+
+  execute(validateTask: ValidateTask, validatorMap: Map&lt;string, any&gt;) {
+    const item = LabelResultDatabase.findByUUID(validateTask.uuid);
+
+    if (
+      item?.labelResultId !== DEFAULT_GROUP_LABEL_ID &amp;&amp;
+      [ImageShapeTypeEnum.GroupBox, PointCloudShapeTypeEnum.GroupGeometry].includes(
+        item?.geometry?.type
+      )
+    ) {
+      const validatorItem</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/resourceLoader/pointCloud/pcdLoader.ts (Line 555:4 - Line 578:12), src/pages/tool/common/canvasContext/pointCloud/utils/PointsMeshUtils.ts (Line 139:10 - Line 161:6)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn27" onclick="toggleCodeBlock('cloneGroup27', 'expandBtn27', 'collapseBtn27')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn27" onclick="toggleCodeBlock('cloneGroup27', 'expandBtn27', 'collapseBtn27')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup27"><code class="language-typescript text-sm text-gray-800">,
+      // sizeAttenuation: false,
+      onBeforeCompile(shader: Shader) {
+        shader.vertexShader = `
+      attribute float visibility;
+      varying float vVisible;
+      ${shader.vertexShader}`.replace(
+          `gl_PointSize = size;`,
+          `gl_PointSize = size;
+        vVisible = visibility;
+      `
+        );
+        shader.fragmentShader = `
+      varying float vVisible;
+    ${shader.fragmentShader}`.replace(
+          `#include &lt;clipping_planes_fragment&gt;`,
+          `
+        if (vVisible &lt; 0.5) discard;
+      #include &lt;clipping_planes_fragment&gt;`
+        );
+      },
+    });
+
+    if (originColor</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/resourceLoader/pointCloud/lodPcdLoader.ts (Line 24:5 - Line 185:14), src/pages/tool/common/resourceLoader/pointCloud/pcdLoader.ts (Line 44:5 - Line 205:8)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn28" onclick="toggleCodeBlock('cloneGroup28', 'expandBtn28', 'collapseBtn28')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn28" onclick="toggleCodeBlock('cloneGroup28', 'expandBtn28', 'collapseBtn28')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup28"><code class="language-typescript text-sm text-gray-800">const scope = this;
+
+    const loader = new FileLoader(scope.manager);
+    loader.setPath(scope.path);
+    loader.setResponseType('arraybuffer');
+    loader.load(
+      url,
+      async data =&gt; {
+        try {
+          onLoad(await scope.parse(data, url));
+        } catch (e) {
+          if (onError) {
+            onError(e);
+          } else {
+            console.error(e);
+          }
+
+          scope.manager.itemError(url);
+        }
+      },
+      onProgress,
+      onError
+    );
+  }
+
+  async parse(data: any, url: string) {
+    // from https://gitlab.com/taketwo/three-pcd-loader/blob/master/decompress-lzf.js
+
+    function decompressLZF(inData: any, outLength: any) {
+      const inLength = inData.length;
+      const outData = new Uint8Array(outLength);
+      let inPtr = 0;
+      let outPtr = 0;
+      let ctrl;
+      let len;
+      let ref;
+      do {
+        ctrl = inData[inPtr++];
+        if (ctrl &lt; 1 &lt;&lt; 5) {
+          ctrl++;
+          if (outPtr + ctrl &gt; outLength) throw new Error('Output buffer is not large enough');
+          if (inPtr + ctrl &gt; inLength) throw new Error('Invalid compressed data');
+          do {
+            outData[outPtr++] = inData[inPtr++];
+          } while (--ctrl);
+        } else {
+          len = ctrl &gt;&gt; 5;
+          ref = outPtr - ((ctrl &amp; 0x1f) &lt;&lt; 8) - 1;
+          if (inPtr &gt;= inLength) throw new Error('Invalid compressed data');
+          if (len === 7) {
+            len += inData[inPtr++];
+            if (inPtr &gt;= inLength) throw new Error('Invalid compressed data');
+          }
+
+          ref -= inData[inPtr++];
+          if (outPtr + len + 2 &gt; outLength) throw new Error('Output buffer is not large enough');
+          if (ref &lt; 0) throw new Error('Invalid compressed data');
+          if (ref &gt;= outPtr) throw new Error('Invalid compressed data');
+          do {
+            outData[outPtr++] = outData[ref++];
+          } while (--len + 2);
+        }
+      } while (inPtr &lt; inLength);
+
+      return outData;
+    }
+
+    function parseHeader(data: any) {
+      const PCDheader: any = {};
+      const result1: any = data.search(/[\r\n]DATA\s(\S*)\s/i);
+      const result2: any = /[\r\n]DATA\s(\S*)\s/i.exec(data.substr(result1 - 1));
+
+      PCDheader.data = result2[1];
+      PCDheader.headerLen = result2[0].length + result1;
+      PCDheader.str = data.substr(0, PCDheader.headerLen);
+
+      // remove comments
+
+      PCDheader.str = PCDheader.str.replace(/\\#.*/gi, '');
+
+      // parse
+
+      PCDheader.version = /VERSION (.*)/i.exec(PCDheader.str);
+      PCDheader.fields = /FIELDS (.*)/i.exec(PCDheader.str);
+      PCDheader.size = /SIZE (.*)/i.exec(PCDheader.str);
+      PCDheader.type = /TYPE (.*)/i.exec(PCDheader.str);
+      PCDheader.count = /COUNT (.*)/i.exec(PCDheader.str);
+      PCDheader.width = /WIDTH (.*)/i.exec(PCDheader.str);
+      PCDheader.height = /HEIGHT (.*)/i.exec(PCDheader.str);
+      PCDheader.viewpoint = /VIEWPOINT (.*)/i.exec(PCDheader.str);
+      PCDheader.points = /POINTS (.*)/i.exec(PCDheader.str);
+
+      // evaluate
+
+      if (PCDheader.version !== null) PCDheader.version = parseFloat(PCDheader.version[1]);
+
+      if (PCDheader.fields !== null) PCDheader.fields = PCDheader.fields[1].split(' ');
+
+      if (PCDheader.type !== null) PCDheader.type = PCDheader.type[1].split(' ');
+
+      if (PCDheader.width !== null) PCDheader.width = parseInt(PCDheader.width[1], 10);
+
+      if (PCDheader.height !== null) PCDheader.height = parseInt(PCDheader.height[1], 10);
+
+      if (PCDheader.viewpoint !== null) PCDheader.viewpoint = PCDheader.viewpoint[1];
+
+      if (PCDheader.points !== null) PCDheader.points = parseInt(PCDheader.points[1], 10);
+
+      if (PCDheader.points === null) PCDheader.points = PCDheader.width * PCDheader.height;
+
+      if (PCDheader.size !== null) {
+        PCDheader.size = PCDheader.size[1].split(' ').map((x: any) =&gt; {
+          return parseInt(x, 10);
+        });
+      }
+
+      if (PCDheader.count !== null) {
+        PCDheader.count = PCDheader.count[1].split(' ').map((x: any) =&gt; {
+          return parseInt(x, 10);
+        });
+      } else {
+        PCDheader.count = [];
+
+        for (let i = 0, l = PCDheader.fields.length; i &lt; l; i++) {
+          PCDheader.count.push(1);
+        }
+      }
+
+      PCDheader.offset = {};
+      PCDheader.functionName = {};
+
+      let sizeSum = 0;
+      const typeMap: any = {
+        U: 'getUint',
+        I: 'getInt',
+        F: 'getFloat',
+      };
+      for (let i = 0, l = PCDheader.fields.length; i &lt; l; i++) {
+        if (PCDheader.data === 'ascii') {
+          PCDheader.offset[PCDheader.fields[i]] = i;
+        } else {
+          PCDheader.offset[PCDheader.fields[i]] = sizeSum;
+          sizeSum += PCDheader.size[i] * PCDheader.count[i];
+        }
+        PCDheader.functionName[PCDheader.fields[i]] =
+          typeMap[PCDheader.type[i]] + PCDheader.size[i] * 8;
+      }
+
+      // for binary only
+
+      PCDheader.rowSize = sizeSum;
+
+      return PCDheader;
+    }
+
+    const textData = LoaderUtils.decodeText(new Uint8Array(data));
+
+    // parse header (always ascii format)
+
+    const PCDheader = parseHeader(textData);
+
+    // parse data</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/resourceLoader/pointCloud/lodPcdLoader.ts (Line 267:5 - Line 293:2), src/pages/tool/common/resourceLoader/pointCloud/pcdLoader.ts (Line 327:13 - Line 354:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn29" onclick="toggleCodeBlock('cloneGroup29', 'expandBtn29', 'collapseBtn29')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn29" onclick="toggleCodeBlock('cloneGroup29', 'expandBtn29', 'collapseBtn29')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup29"><code class="language-typescript text-sm text-gray-800">, intensityValue);
+      }
+    }
+
+    // binary-compressed
+
+    // normally data in PCD files are organized as array of structures: XYZRGBXYZRGB
+    // binary compressed PCD files organize their data as structure of arrays: XXYYZZRGBRGB
+    // that requires a totally different parsing approach compared to non-compressed data
+
+    if (PCDheader.data === 'binary_compressed') {
+      const sizes = new Uint32Array(data.slice(PCDheader.headerLen, PCDheader.headerLen + 8));
+      const compressedSize = sizes[0];
+      const decompressedSize = sizes[1];
+      const decompressed = decompressLZF(
+        new Uint8Array(data, PCDheader.headerLen + 8, compressedSize),
+        decompressedSize
+      );
+      const dataview = new DataView(decompressed.buffer);
+
+      for (let i = 0; i &lt; PCDheader.points; i++) {
+        if (hasPosition) {
+          vertexZ = dataview[functionName.z](
+            PCDheader.points * offset.z + PCDheader.size[2] * i,
+            this.littleEndian
+          );
+          position.</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/resourceLoader/pointCloud/fusePcdLoader.ts (Line 29:5 - Line 197:6), src/pages/tool/common/resourceLoader/pointCloud/pcdLoader.ts (Line 44:5 - Line 213:10)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn30" onclick="toggleCodeBlock('cloneGroup30', 'expandBtn30', 'collapseBtn30')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn30" onclick="toggleCodeBlock('cloneGroup30', 'expandBtn30', 'collapseBtn30')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup30"><code class="language-typescript text-sm text-gray-800">const scope = this;
+
+    const loader = new FileLoader(scope.manager);
+    loader.setPath(scope.path);
+    loader.setResponseType('arraybuffer');
+    loader.load(
+      url,
+      async data =&gt; {
+        try {
+          onLoad(await scope.parse(data, url));
+        } catch (e) {
+          if (onError) {
+            onError(e);
+          } else {
+            console.error(e);
+          }
+
+          scope.manager.itemError(url);
+        }
+      },
+      onProgress,
+      onError
+    );
+  }
+
+  async parse(data: any, url: string) {
+    // from https://gitlab.com/taketwo/three-pcd-loader/blob/master/decompress-lzf.js
+
+    function decompressLZF(inData: any, outLength: any) {
+      const inLength = inData.length;
+      const outData = new Uint8Array(outLength);
+      let inPtr = 0;
+      let outPtr = 0;
+      let ctrl;
+      let len;
+      let ref;
+      do {
+        ctrl = inData[inPtr++];
+        if (ctrl &lt; 1 &lt;&lt; 5) {
+          ctrl++;
+          if (outPtr + ctrl &gt; outLength) throw new Error('Output buffer is not large enough');
+          if (inPtr + ctrl &gt; inLength) throw new Error('Invalid compressed data');
+          do {
+            outData[outPtr++] = inData[inPtr++];
+          } while (--ctrl);
+        } else {
+          len = ctrl &gt;&gt; 5;
+          ref = outPtr - ((ctrl &amp; 0x1f) &lt;&lt; 8) - 1;
+          if (inPtr &gt;= inLength) throw new Error('Invalid compressed data');
+          if (len === 7) {
+            len += inData[inPtr++];
+            if (inPtr &gt;= inLength) throw new Error('Invalid compressed data');
+          }
+
+          ref -= inData[inPtr++];
+          if (outPtr + len + 2 &gt; outLength) throw new Error('Output buffer is not large enough');
+          if (ref &lt; 0) throw new Error('Invalid compressed data');
+          if (ref &gt;= outPtr) throw new Error('Invalid compressed data');
+          do {
+            outData[outPtr++] = outData[ref++];
+          } while (--len + 2);
+        }
+      } while (inPtr &lt; inLength);
+
+      return outData;
+    }
+
+    function parseHeader(data: any) {
+      const PCDheader: any = {};
+      const result1: any = data.search(/[\r\n]DATA\s(\S*)\s/i);
+      const result2: any = /[\r\n]DATA\s(\S*)\s/i.exec(data.substr(result1 - 1));
+
+      PCDheader.data = result2[1];
+      PCDheader.headerLen = result2[0].length + result1;
+      PCDheader.str = data.substr(0, PCDheader.headerLen);
+
+      // remove comments
+
+      PCDheader.str = PCDheader.str.replace(/\\#.*/gi, '');
+
+      // parse
+
+      PCDheader.version = /VERSION (.*)/i.exec(PCDheader.str);
+      PCDheader.fields = /FIELDS (.*)/i.exec(PCDheader.str);
+      PCDheader.size = /SIZE (.*)/i.exec(PCDheader.str);
+      PCDheader.type = /TYPE (.*)/i.exec(PCDheader.str);
+      PCDheader.count = /COUNT (.*)/i.exec(PCDheader.str);
+      PCDheader.width = /WIDTH (.*)/i.exec(PCDheader.str);
+      PCDheader.height = /HEIGHT (.*)/i.exec(PCDheader.str);
+      PCDheader.viewpoint = /VIEWPOINT (.*)/i.exec(PCDheader.str);
+      PCDheader.points = /POINTS (.*)/i.exec(PCDheader.str);
+
+      // evaluate
+
+      if (PCDheader.version !== null) PCDheader.version = parseFloat(PCDheader.version[1]);
+
+      if (PCDheader.fields !== null) PCDheader.fields = PCDheader.fields[1].split(' ');
+
+      if (PCDheader.type !== null) PCDheader.type = PCDheader.type[1].split(' ');
+
+      if (PCDheader.width !== null) PCDheader.width = parseInt(PCDheader.width[1], 10);
+
+      if (PCDheader.height !== null) PCDheader.height = parseInt(PCDheader.height[1], 10);
+
+      if (PCDheader.viewpoint !== null) PCDheader.viewpoint = PCDheader.viewpoint[1];
+
+      if (PCDheader.points !== null) PCDheader.points = parseInt(PCDheader.points[1], 10);
+
+      if (PCDheader.points === null) PCDheader.points = PCDheader.width * PCDheader.height;
+
+      if (PCDheader.size !== null) {
+        PCDheader.size = PCDheader.size[1].split(' ').map((x: any) =&gt; {
+          return parseInt(x, 10);
+        });
+      }
+
+      if (PCDheader.count !== null) {
+        PCDheader.count = PCDheader.count[1].split(' ').map((x: any) =&gt; {
+          return parseInt(x, 10);
+        });
+      } else {
+        PCDheader.count = [];
+
+        for (let i = 0, l = PCDheader.fields.length; i &lt; l; i++) {
+          PCDheader.count.push(1);
+        }
+      }
+
+      PCDheader.offset = {};
+      PCDheader.functionName = {};
+
+      let sizeSum = 0;
+      const typeMap: any = {
+        U: 'getUint',
+        I: 'getInt',
+        F: 'getFloat',
+      };
+      for (let i = 0, l = PCDheader.fields.length; i &lt; l; i++) {
+        if (PCDheader.data === 'ascii') {
+          PCDheader.offset[PCDheader.fields[i]] = i;
+        } else {
+          PCDheader.offset[PCDheader.fields[i]] = sizeSum;
+          sizeSum += PCDheader.size[i] * PCDheader.count[i];
+        }
+        PCDheader.functionName[PCDheader.fields[i]] =
+          typeMap[PCDheader.type[i]] + PCDheader.size[i] * 8;
+      }
+
+      // for binary only
+
+      PCDheader.rowSize = sizeSum;
+
+      return PCDheader;
+    }
+
+    const textData = LoaderUtils.decodeText(new Uint8Array(data));
+
+    // parse header (always ascii format)
+
+    const PCDheader = parseHeader(textData);
+    // 点云数量
+    const pointCount = PCDheader.points;
+
+    // parse data
+
+    const position = new Float32Array(pointCount * 3);
+    // 预览
+    const normal = new Float32Array(pointCount * 3);
+    const color</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/resourceLoader/pointCloud/fusePcdLoader.ts (Line 209:2 - Line 235:9), src/pages/tool/common/resourceLoader/pointCloud/pcdLoader.ts (Line 280:2 - Line 306:7)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn31" onclick="toggleCodeBlock('cloneGroup31', 'expandBtn31', 'collapseBtn31')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn31" onclick="toggleCodeBlock('cloneGroup31', 'expandBtn31', 'collapseBtn31')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup31"><code class="language-typescript text-sm text-gray-800">;
+
+    // ascii
+
+    if (PCDheader.data === 'ascii') {
+      const pcdData = textData.substr(PCDheader.headerLen);
+      const lines = pcdData.split('\n');
+
+      for (let i = 0, l = lines.length; i &lt; l; i++) {
+        if (lines[i] === '') continue;
+
+        const line = lines[i].split(' ');
+
+        if (hasPosition) {
+          vertexZ = parseFloat(line[offset.z]);
+          position[i * 3 + 0] = parseFloat(line[offset.x]);
+          position[i * 3 + 1] = parseFloat(line[offset.y]);
+          position[i * 3 + 2] = vertexZ;
+        }
+
+        if (hasIntensity) {
+          // 补充强度信息
+          intensityValue = parseFloat(line[offset.intensity]);
+          intensity[i] = intensityValue;
+        }
+
+        if (hasColor</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/resourceLoader/pointCloud/fusePcdLoader.ts (Line 255:7 - Line 276:2), src/pages/tool/common/resourceLoader/pointCloud/pcdLoader.ts (Line 328:7 - Line 349:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn32" onclick="toggleCodeBlock('cloneGroup32', 'expandBtn32', 'collapseBtn32')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn32" onclick="toggleCodeBlock('cloneGroup32', 'expandBtn32', 'collapseBtn32')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup32"><code class="language-typescript text-sm text-gray-800">}
+    }
+
+    // binary-compressed
+
+    // normally data in PCD files are organized as array of structures: XYZRGBXYZRGB
+    // binary compressed PCD files organize their data as structure of arrays: XXYYZZRGBRGB
+    // that requires a totally different parsing approach compared to non-compressed data
+
+    if (PCDheader.data === 'binary_compressed') {
+      const sizes = new Uint32Array(data.slice(PCDheader.headerLen, PCDheader.headerLen + 8));
+      const compressedSize = sizes[0];
+      const decompressedSize = sizes[1];
+      const decompressed = decompressLZF(
+        new Uint8Array(data, PCDheader.headerLen + 8, compressedSize),
+        decompressedSize
+      );
+      const dataview = new DataView(decompressed.buffer);
+
+      for (let i = 0; i &lt; PCDheader.points; i++) {
+        if (hasPosition) {
+          vertexZ = dataview.</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/resourceLoader/pointCloud/fusePcdLoader.ts (Line 330:7 - Line 359:9), src/pages/tool/common/resourceLoader/pointCloud/pcdLoader.ts (Line 408:7 - Line 438:7)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn33" onclick="toggleCodeBlock('cloneGroup33', 'expandBtn33', 'collapseBtn33')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn33" onclick="toggleCodeBlock('cloneGroup33', 'expandBtn33', 'collapseBtn33')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup33"><code class="language-typescript text-sm text-gray-800">}
+    }
+
+    // binary
+
+    if (PCDheader.data === 'binary') {
+      const dataview = new DataView(data, PCDheader.headerLen);
+      for (let i = 0, row = 0; i &lt; PCDheader.points; i++, row += PCDheader.rowSize) {
+        if (hasPosition) {
+          vertexX = dataview[functionName.x](row + offset.x, this.littleEndian);
+          vertexY = dataview[functionName.y](row + offset.y, this.littleEndian);
+          vertexZ = dataview[functionName.z](row + offset.z, this.littleEndian);
+
+          if (Number.isNaN(vertexX) || Number.isNaN(vertexY) || Number.isNaN(vertexZ)) {
+            // 跳过异常数据
+            continue;
+          }
+          position[i * 3 + 0] = vertexX;
+          position[i * 3 + 1] = vertexY;
+          position[i * 3 + 2] = vertexZ;
+        }
+
+        if (hasIntensity) {
+          intensityValue = dataview[functionName.intensity](
+            row + offset.intensity,
+            this.littleEndian
+          );
+        }
+
+        if (hasColor</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/global/rightHistoryControl/index.ts (Line 620:7 - Line 664:6), src/pages/tool/common/global/rightHistoryControl/index.ts (Line 470:8 - Line 514:4)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn34" onclick="toggleCodeBlock('cloneGroup34', 'expandBtn34', 'collapseBtn34')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn34" onclick="toggleCodeBlock('cloneGroup34', 'expandBtn34', 'collapseBtn34')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup34"><code class="language-typescript text-sm text-gray-800">) {
+    if (VersionUtils.isPlusVersion()) return;
+    // const { isSegmentation } = useTaskManagerStore();
+    // if (isSegmentation) return;
+    const {
+      frameId,
+      toolType,
+      labelGroupId,
+      indexNumber,
+      labelResultId,
+      objectUuid,
+      wrongType,
+      id,
+      correctingToolType,
+      labelToolName,
+      labelToolType,
+    } = target;
+    const { frameDataMap, getToolLabelData } = useCanvasFrameStore();
+    const shapeData = frameDataMap[frameId];
+    if (!shapeData) return;
+    const { frameIndex } = shapeData;
+
+    const isMissingOrGlobal =
+      wrongType === (WrongTypeEnum.MISSING || WrongTypeEnum.GLOBAL_PROPERTY);
+    const commonData = {
+      frameId,
+      frameIndex,
+      labelToolType: !isMissingOrGlobal ? labelToolType || toolTypeSeedToProEnum[toolType] : null,
+      labelToolName: isMissingOrGlobal
+        ? null
+        : labelToolName || getToolLabelData(labelGroupId)?.name || '',
+      objectIndex: isMissingOrGlobal ? null : indexNumber &gt;= 0 ? indexNumber : null,
+      cameraName: ObjectListUtils.getCameraNameByTaskId(target.canvasId, frameId) || '',
+      labelToolId: labelResultId || null,
+      objectUuid: objectUuid || null,
+      correctingRecordType: wrongType,
+      correctingRecordId: id,
+      correctingToolType,
+      correctingIndex: '',
+    };
+
+    const dateTime = dayjs().format('YYYY/MM/DD HH:mm:ss');
+    const timeStamp = new Date().getTime();
+
+    const</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/pointCloud/CanvasContext.ts (Line 156:20 - Line 176:6), src/pages/tool/common/canvasContext/tileMode/pointCloud/TileCanvasCtx.ts (Line 106:9 - Line 125:5)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn35" onclick="toggleCodeBlock('cloneGroup35', 'expandBtn35', 'collapseBtn35')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn35" onclick="toggleCodeBlock('cloneGroup35', 'expandBtn35', 'collapseBtn35')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup35"><code class="language-typescript text-sm text-gray-800">;
+    let canvasShape = null;
+    if (
+      !aiApplied &amp;&amp;
+      objectType === ObjectTypeEnum.AI &amp;&amp;
+      pointCloudShapeData.geometry?.type !== PointCloudShapeTypeEnum.MissingPointGeometry
+    ) {
+      canvasShape = this.shapeFactory.generateAIShape(pointCloudShapeData);
+      const { aiPreLabel } = useCanvasStateStore();
+      if (!aiPreLabel) {
+        canvasShape.visible = false;
+        canvasShape.children.find((item: any) =&gt; item.isCSS2DObject).visible = false;
+      }
+      this.aiShapeList.push(canvasShape);
+    } else {
+      canvasShape = this.shapeFactory.generateShape(pointCloudShapeData);
+    }
+
+    if (!canvasShape) return null;
+
+    const</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/pointCloud/CanvasContext.ts (Line 372:2 - Line 397:2), src/pages/tool/common/canvasContext/tileMode/pointCloud/TileCanvasCtx.ts (Line 207:10 - Line 232:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn36" onclick="toggleCodeBlock('cloneGroup36', 'expandBtn36', 'collapseBtn36')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn36" onclick="toggleCodeBlock('cloneGroup36', 'expandBtn36', 'collapseBtn36')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup36"><code class="language-typescript text-sm text-gray-800">);
+        }
+      }
+    }
+  }
+
+  getShapeScreenBoundingBox(uuid: string) {
+    const targetShape = this.findShape(uuid);
+
+    if (targetShape) {
+      targetShape.updateMatrixWorld();
+      targetShape.geometry.computeBoundingBox();
+
+      const geometryBoundingBox = targetShape.geometry.boundingBox;
+
+      const minPoint = targetShape.localToWorld(geometryBoundingBox.min.clone());
+      const maxPoint = targetShape.localToWorld(geometryBoundingBox.max.clone());
+
+      const leftTopPoint = PointCloudUtils.getScreenPointFromScenePoint(minPoint, this);
+      const rightBottomPoint = PointCloudUtils.getScreenPointFromScenePoint(maxPoint, this);
+
+      const screenBoundingBox = ImageShapeUtils.getBoundingBoxFromPointList(
+        ImageShapeUtils.getRectPointList(leftTopPoint, rightBottomPoint)
+      );
+
+      const { renderer }</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/pointCloud/CanvasContext.ts (Line 463:3 - Line 521:2), src/pages/tool/common/canvasContext/tileMode/pointCloud/TileCanvasCtx.ts (Line 281:3 - Line 336:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn37" onclick="toggleCodeBlock('cloneGroup37', 'expandBtn37', 'collapseBtn37')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn37" onclick="toggleCodeBlock('cloneGroup37', 'expandBtn37', 'collapseBtn37')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup37"><code class="language-typescript text-sm text-gray-800">}
+
+  updateCorrectionRenderPlus() {
+    const { getCanvasTaskCirculationId, selectedTaskCirculationId, currentDetailed } =
+      useProjectDetailStore();
+    const { currentEditObjectId } = useCanvasFrameStore();
+    const { currentLabelTaskMode, labelFunctionEnabled } = useTaskManagerStore();
+
+    const circulationId = getCanvasTaskCirculationId();
+
+    if (!circulationId) return;
+
+    const isLabelTask =
+      currentLabelTaskMode.type === TaskFlowPhaseEnum.Label &amp;&amp;
+      currentDetailed?.id === selectedTaskCirculationId;
+
+    this.renderControl.renderShapeList.forEach(mesh =&gt; {
+      const isMissingPoint = mesh.params.type === PointCloudShapeTypeEnum.MissingPointGeometry;
+
+      // 区分漏标/对象批改
+      // 一个漏标对应的只有一条批改记录
+      // 对象可能对应多条记录
+
+      // 区分当前工作流及当前错误列表选中的工作流
+      // 当前工作流为标注流&amp;&amp;错误列表中选中当前流 =》展示所有未完成的批改
+      // 否则展示当前选中流的批改
+
+      if (!isLabelTask) {
+        // 非标注流||选中工作流非标注流按照以前的逻辑
+        const correctionData = LabelCorrectionDatabase.findByUUId(
+          `${mesh.params.uuid}$${circulationId}`
+        );
+        let status = !!correctionData?.checkedList?.length;
+
+        if (correctionData &amp;&amp; correctionData?.checkedList?.length) {
+          if (
+            currentEditObjectId === correctionData.shapeUuid &amp;&amp;
+            (currentLabelTaskMode.type === TaskFlowPhaseEnum.Label || labelFunctionEnabled)
+          ) {
+            // const isMissing = mesh.params.type === PointCloudShapeTypeEnum.MissingPointGeometry;
+
+            status = isMissingPoint;
+
+            if (correctionData.checkFlag &amp;&amp; currentDetailed?.id === selectedTaskCirculationId) {
+              status = false;
+            }
+          } else if (
+            currentDetailed?.taskFlowStageType === Workflow.TAGGING_TASK &amp;&amp;
+            currentDetailed?.id === selectedTaskCirculationId &amp;&amp;
+            correctionData.checkFlag
+          ) {
+            status = false;
+          }
+        }
+
+        this.renderControl.updateMeshCorrectedStatus(
+          mesh,
+          status,
+          correctionData?.correctionIndex,</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/pointCloud/CanvasContext.ts (Line 523:9 - Line 552:2), src/pages/tool/common/canvasContext/tileMode/pointCloud/TileCanvasCtx.ts (Line 336:16 - Line 362:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn38" onclick="toggleCodeBlock('cloneGroup38', 'expandBtn38', 'collapseBtn38')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn38" onclick="toggleCodeBlock('cloneGroup38', 'expandBtn38', 'collapseBtn38')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup38"><code class="language-typescript text-sm text-gray-800">);
+      } else {
+        // 标注流&amp;&amp;当前选中的工作流为标注流
+        let correctionData;
+        const correctionList = LabelCorrectionDatabase.getItemByShapeId(mesh.params.uuid);
+
+        if (isMissingPoint) {
+          correctionData = correctionList?.[0];
+        } else {
+          // correctionList.reverse();
+          correctionList.sort((prev, next) =&gt; prev.correctionIndex - next.correctionIndex);
+          correctionData = correctionList?.find(
+            item =&gt; !item?.checkFlag &amp;&amp; item?.checkedList?.length
+          );
+        }
+
+        let status = !!correctionData;
+
+        if (currentEditObjectId === correctionData?.shapeUuid &amp;&amp; !isMissingPoint) {
+          status = false;
+        }
+
+        if (correctionData?.checkFlag) {
+          status = false;
+        }
+
+        this.renderControl.updateMeshCorrectedStatus(
+          mesh,
+          status,
+          correctionData?.correctionIndex,</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/pointCloud/CanvasContext.ts (Line 579:9 - Line 601:2), src/pages/tool/common/canvasContext/tileMode/pointCloud/TileCanvasCtx.ts (Line 379:9 - Line 398:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn39" onclick="toggleCodeBlock('cloneGroup39', 'expandBtn39', 'collapseBtn39')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn39" onclick="toggleCodeBlock('cloneGroup39', 'expandBtn39', 'collapseBtn39')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup39"><code class="language-typescript text-sm text-gray-800">);
+      }
+      return;
+    }
+
+    // 眼睛控制和属性过滤器 同时控制显示状态
+    const filterVisible = shapeData.filterVisible === undefined ? true : shapeData.filterVisible;
+    const visible = shapeData.visible === undefined ? true : shapeData.visible;
+    const shapeVisible = visible &amp;&amp; filterVisible;
+
+    // 这里写成不同类型执行不同方法，同时执行时，不同对象会造成前后混乱的问题
+    switch (type) {
+      case 'hover':
+        this.renderControl.update3DMeshHoverColor(mesh, shapeData.hover);
+        break;
+      case 'selected':
+        this.renderControl.update3DMeshSelectColor(mesh, shapeData.selected);
+        break;
+      case 'visible':
+        this.renderControl.update3DMeshVisible(
+          mesh,
+          shapeVisible,
+          notNeedUpdate,</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/ImageCanvasShapeEditorControl.ts (Line 644:18 - Line 664:4), src/pages/tool/common/canvasContext/image/ImageCanvasShapeEditorControl.ts (Line 596:9 - Line 617:18)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn40" onclick="toggleCodeBlock('cloneGroup40', 'expandBtn40', 'collapseBtn40')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn40" onclick="toggleCodeBlock('cloneGroup40', 'expandBtn40', 'collapseBtn40')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup40"><code class="language-typescript text-sm text-gray-800">);
+        let mainShape = isMainContext
+          ? newPolygon
+          : mappingShapeUpdateCommandList.find(v =&gt; isMainImageContextObj(v));
+
+        if (!mainShape.geometry) {
+          mainShape = {
+            ...mainShape,
+            geometry: {
+              ...mainShape.options.to,
+            },
+          };
+        }
+
+        SpringFramework.executeBatchCommand([
+          ...HistoryCommandGenerator.getShapeBatchDeleteCommandList(
+            allSameIdPolygonList,
+            false,
+            false
+          ),
+          ...</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/ImageCanvasGroupControl.ts (Line 250:2 - Line 272:28), src/pages/tool/common/canvasContext/pointCloud/CanvasGroupControl.ts (Line 674:7 - Line 696:23)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn41" onclick="toggleCodeBlock('cloneGroup41', 'expandBtn41', 'collapseBtn41')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn41" onclick="toggleCodeBlock('cloneGroup41', 'expandBtn41', 'collapseBtn41')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup41"><code class="language-typescript text-sm text-gray-800">) return;
+
+    const [firstShape] = shapeList;
+
+    const firstShapeGroupId = getGroupUuid(firstShape.uuid);
+
+    let shapeInFirstGroupCount = 0;
+
+    let firstGroup;
+
+    let updateGroupCommand: AbstractHistoryCommandOptions[] = [];
+
+    for (let i = 0; i &lt; shapeList.length; i++) {
+      const shape = shapeList[i];
+      if (shape.objectUuids) {
+        MindMessage({
+          type: 'warning',
+          message: i18nT('cannotGroup', { indexNumber: shape.indexNumber }),
+        });
+        return;
+      }
+
+      if (!canMarshalledImageShapeType</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/ImageCanvasGroupControl.ts (Line 272:28 - Line 296:6), src/pages/tool/common/canvasContext/pointCloud/CanvasGroupControl.ts (Line 696:23 - Line 721:12)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn42" onclick="toggleCodeBlock('cloneGroup42', 'expandBtn42', 'collapseBtn42')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn42" onclick="toggleCodeBlock('cloneGroup42', 'expandBtn42', 'collapseBtn42')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup42"><code class="language-typescript text-sm text-gray-800">.includes(shape.geometry.type)) {
+        break;
+      }
+
+      const groupId = getGroupUuid(shape.uuid);
+
+      if (!!firstShapeGroupId &amp;&amp; groupId === firstShapeGroupId) {
+        shapeInFirstGroupCount++;
+      }
+
+      if (groupId) {
+        if (i === 0) {
+          firstGroup = LabelResultDatabase.findByUUID(groupId);
+        }
+
+        const lastUpdateGroupCommand = updateGroupCommand.find(cmd =&gt; cmd.uuid === groupId);
+
+        let groupObject;
+
+        if (!lastUpdateGroupCommand) {
+          groupObject = lodash.cloneDeep(LabelResultDatabase.findByUUID(groupId));
+        } else {
+          groupObject = lastUpdateGroupCommand.options.to;
+        }
+        const</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/ImageCanvasGroupControl.ts (Line 310:11 - Line 347:2), src/pages/tool/common/canvasContext/pointCloud/CanvasGroupControl.ts (Line 731:12 - Line 769:12)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn43" onclick="toggleCodeBlock('cloneGroup43', 'expandBtn43', 'collapseBtn43')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn43" onclick="toggleCodeBlock('cloneGroup43', 'expandBtn43', 'collapseBtn43')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup43"><code class="language-typescript text-sm text-gray-800">);
+          groupObject.geometry.color = color;
+
+          [command] = HistoryCommandGenerator.getGroupGeometryUpdateCommandList([groupObject]);
+        } else {
+          [command] = HistoryCommandGenerator.getGroupDeleteCommandList([groupObject]);
+        }
+
+        updateGroupCommand = updateGroupCommand.filter(cmd =&gt; cmd.uuid !== command.uuid);
+
+        updateGroupCommand.push(command);
+      }
+    }
+
+    const frameStore = useCanvasFrameStore();
+
+    if (
+      shapeInFirstGroupCount === shapeList.length &amp;&amp;
+      firstGroup?.objectUuids?.length === shapeInFirstGroupCount
+    ) {
+      frameStore.updateEditGroupId(firstGroup.uuid);
+      MindMessage({
+        type: 'success',
+        message: i18nT('deleteGroupMsg', { key: isMac() ? '⌘+⇧+G' : 'Ctrl+Shift+G' }),
+      });
+      return;
+    }
+
+    if (this.hoverGroupUuid) {
+      this.setGroupHover(this.hoverGroupUuid, true, false);
+      this.hoverGroupUuid = '';
+      this.hoverGroup = null;
+    }
+
+    const groupBoundingBox = this.computeGroupBoundingBox(shapeList, true);
+
+    const { currentLabelTask } = useTaskManagerStore();
+    const {</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/ImageCanvasGroupControl.ts (Line 542:2 - Line 562:7), src/pages/tool/common/canvasContext/image/ImageCanvasGroupControl.ts (Line 503:2 - Line 523:5)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn44" onclick="toggleCodeBlock('cloneGroup44', 'expandBtn44', 'collapseBtn44')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn44" onclick="toggleCodeBlock('cloneGroup44', 'expandBtn44', 'collapseBtn44')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup44"><code class="language-typescript text-sm text-gray-800">);
+
+        otherGroupData.forEach(groupData =&gt; {
+          const targetShapeList = groupData.objectUuids.reduce((list, uuid) =&gt; {
+            if (shapeUuidMap[uuid]) {
+              const child = LabelResultDatabase.findByUUID(uuid);
+              if (child) {
+                list.push(child);
+              }
+            }
+
+            return list;
+          }, []);
+          const commandList =
+            HistoryCommandGenerator.generateGroupUpdateCommandListByDeletedShape(targetShapeList);
+          updateGroupCommand.push(...commandList);
+        });
+      }
+    }
+
+    return</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/canvasContext/image/ImageCanvasContext.ts (Line 551:7 - Line 581:6), src/pages/tool/common/canvasContext/image/ImageCanvasContext.ts (Line 484:7 - Line 518:3)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn45" onclick="toggleCodeBlock('cloneGroup45', 'expandBtn45', 'collapseBtn45')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn45" onclick="toggleCodeBlock('cloneGroup45', 'expandBtn45', 'collapseBtn45')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup45"><code class="language-typescript text-sm text-gray-800">);
+    if (parentContext) {
+      const parentViewportTransform = parentContext.renderControl.canvasInstance.viewportTransform;
+      const currentCanvasBoundingBox = this.renderControl.canvasElement.getBoundingClientRect();
+      const parentCanvasBoundingBox =
+        parentContext.renderControl.canvasElement.getBoundingClientRect();
+
+      const canvasWidthRatio = currentCanvasBoundingBox.width / parentCanvasBoundingBox.width;
+      const canvasHeightRatio = currentCanvasBoundingBox.height / parentCanvasBoundingBox.height;
+      const imageWidthRatio = this.canvasTask.parameter.width / currentCanvasBoundingBox.width;
+      const imageHeightRatio = this.canvasTask.parameter.height / currentCanvasBoundingBox.height;
+
+      let canvasRatio = 1;
+
+      if (imageWidthRatio &lt; imageHeightRatio) {
+        canvasRatio = Math.min(canvasWidthRatio, canvasHeightRatio);
+      } else {
+        canvasRatio = Math.max(canvasWidthRatio, canvasHeightRatio);
+      }
+
+      const zoomValue = parentViewportTransform[0] * canvasRatio;
+
+      const originViewportTransform = this.renderControl.computeViewportTransform();
+      const parentOriginViewportTransform = parentContext.renderControl.computeViewportTransform();
+
+      const viewTransformX = originViewportTransform[4];
+      const parentViewTransformX = parentOriginViewportTransform[4];
+      const viewTransformY = originViewportTransform[5];
+      const parentViewTransformY = parentOriginViewportTransform[5];
+
+      const</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/algorithm/image/PolygonSnapAlgo.ts (Line 66:3 - Line 86:4), src/pages/tool/common/algorithm/image/SnapObjectAlgo.ts (Line 65:3 - Line 85:4)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn46" onclick="toggleCodeBlock('cloneGroup46', 'expandBtn46', 'collapseBtn46')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn46" onclick="toggleCodeBlock('cloneGroup46', 'expandBtn46', 'collapseBtn46')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup46"><code class="language-typescript text-sm text-gray-800">}
+
+  getSameEdge(edgeList: IPoint[][], point: IPoint, tolerance: number) {
+    for (let i = 0; i &lt; edgeList.length; i++) {
+      const edge = edgeList[i];
+
+      if (edge[0].x1 !== undefined || edge[1].x1 !== undefined) {
+        if (ImageShapeUtils.isPointOverCurve(point, edge[0], edge[1], tolerance)) {
+          return edge;
+        }
+      } else if (ImageShapeUtils.isPointOverLine(point, edge[0], edge[1], tolerance)) {
+        return edge;
+        // return ImageShapeUtils.getPerpendicularIntersection(point, edge[0], edge[1])
+      }
+    }
+
+    return null;
+  }
+
+  getSamePoint(pointList: IPoint[], point: IPoint, tolerance: number) {
+    let</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/algorithm/image/PolygonSnapAlgo.ts (Line 147:5 - Line 171:10), src/pages/tool/common/algorithm/image/SnapObjectAlgo.ts (Line 214:5 - Line 238:10)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn47" onclick="toggleCodeBlock('cloneGroup47', 'expandBtn47', 'collapseBtn47')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn47" onclick="toggleCodeBlock('cloneGroup47', 'expandBtn47', 'collapseBtn47')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup47"><code class="language-typescript text-sm text-gray-800">return allEdgeList;
+  }
+
+  _getPolygonEdge(pointList: PolygonPointList) {
+    let edgeList: IPoint[][] = [];
+
+    pointList.forEach(part =&gt; {
+      part.forEach(polygon =&gt; {
+        edgeList = edgeList.concat(this._getEdgeList(polygon));
+      });
+    });
+
+    return edgeList;
+  }
+
+  _getEdgeList(pointList: IPoint[], shapeName?: ImageShapeTypeEnum) {
+    const { length } = pointList;
+
+    if (length &lt; 2) return [];
+
+    const edgeList: any = [];
+    pointList.forEach((point, index) =&gt; {
+      let nextPoint;
+      if (index &lt; length - 1) {
+        nextPoint = pointList</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/algorithm/image/PolygonBooleanUnionAlgo.ts (Line 240:8 - Line 265:2), src/pages/tool/common/algorithm/image/PolygonEdgeSharedAlgo.ts (Line 175:7 - Line 201:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn48" onclick="toggleCodeBlock('cloneGroup48', 'expandBtn48', 'collapseBtn48')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn48" onclick="toggleCodeBlock('cloneGroup48', 'expandBtn48', 'collapseBtn48')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup48"><code class="language-typescript text-sm text-gray-800">) {
+        const clipperData = resolveLocalPolygonDataToClipper(value.pointList);
+
+        const cd = new ClipperLib.Clipper();
+
+        cd.AddPaths(clipperData, ClipperLib.PolyType.ptSubject, true);
+        cd.AddPaths(polygonPath, ClipperLib.PolyType.ptClip, true);
+
+        const solution = new ClipperLib.PolyTree();
+        cd.Execute(
+          ClipperLib.ClipType.ctIntersection,
+          solution,
+          ClipperLib.PolyFillType.pftEvenOdd,
+          ClipperLib.PolyFillType.pftEvenOdd
+        );
+
+        if (solution.Total()) {
+          polygonList.push(clipperData);
+          polygonUuidMap[value.params.uuid] = true;
+        }
+      }
+    });
+
+    return { polygonList, polygonUuidMap };
+  }
+}</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/algorithm/image/PolygonBooleanSubtractAlgo.ts (Line 50:8 - Line 79:2), src/pages/tool/common/canvasContext/image/ImageCanvasShapeEditorControl.ts (Line 762:2 - Line 106:3)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn49" onclick="toggleCodeBlock('cloneGroup49', 'expandBtn49', 'collapseBtn49')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn49" onclick="toggleCodeBlock('cloneGroup49', 'expandBtn49', 'collapseBtn49')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup49"><code class="language-typescript text-sm text-gray-800">;
+    const clipper = new ClipperLib.Clipper();
+
+    clipper.AddPaths(polygonPointList, ClipperLib.PolyType.ptSubject, true);
+    clipper.AddPaths(resolvedPath, ClipperLib.PolyType.ptClip, true);
+    const solution = new ClipperLib.PolyTree();
+
+    clipper.Execute(
+      ClipperLib.ClipType.ctDifference,
+      solution,
+      ClipperLib.PolyFillType.pftEvenOdd,
+      ClipperLib.PolyFillType.pftEvenOdd
+    );
+
+    const exPolygonList = ClipperLib.JS.PolyTreeToExPolygons(solution);
+
+    if (exPolygonList.length &amp;&amp; exPolygonList[0]?.outer?.length) {
+      let resolvedPolygonPointList = resolveExPolygonDataToLocal(exPolygonList);
+
+      if (!resolvedPolygonPointList.length) {
+        return false;
+      }
+
+      const boundingBox = getPolygonBoundingBox(resolvedPolygonPointList);
+
+      if (
+        resolvedPolygonPointList.length === 1 &amp;&amp;
+        resolvedPolygonPointList[0].length === 1 &amp;&amp;
+        polygonPointList.length === 1
+      )</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/algorithm/image/PolygonBooleanSubtractAlgo.ts (Line 75:7 - Line 95:2), src/pages/tool/common/canvasContext/image/ImageCanvasShapeEditorControl.ts (Line 811:7 - Line 831:25)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn50" onclick="toggleCodeBlock('cloneGroup50', 'expandBtn50', 'collapseBtn50')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn50" onclick="toggleCodeBlock('cloneGroup50', 'expandBtn50', 'collapseBtn50')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup50"><code class="language-typescript text-sm text-gray-800">if (
+        resolvedPolygonPointList.length === 1 &amp;&amp;
+        resolvedPolygonPointList[0].length === 1 &amp;&amp;
+        polygonPointList.length === 1
+      ) {
+        // 处理顺逆时针问题
+        AlgorithmExecutorInstance.execute(AlgorithmEnum.PolygonBooleanClockwise, {
+          beforePath: polygonPointList[0],
+          afterPath: exPolygonList[0].outer,
+          resolvedPolygonPointList,
+          firstPoint: polygonPointList[0][0],
+          useUpperCase: true,
+        });
+      }
+
+      // 依据各部分最上点的坐标来给各部分重新排序
+      resolvedPolygonPointList = ImageShapeUtils.sortPolygonOrder(resolvedPolygonPointList);
+
+      formatPolygonPointList(resolvedPolygonPointList);
+
+      return {</code></pre></div><div class="py-4"><p class="text-gray-600">src/pages/tool/common/resourceLoader/ResourceLoader.ts (Line 169:5 - Line 198:18), src/pages/tool/common/resourceLoader/ResourceLoader.ts (Line 137:5 - Line 166:19)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn51" onclick="toggleCodeBlock('cloneGroup51', 'expandBtn51', 'collapseBtn51')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn51" onclick="toggleCodeBlock('cloneGroup51', 'expandBtn51', 'collapseBtn51')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup51"><code class="language-typescript text-sm text-gray-800">if (localData &amp;&amp; localData.position) {
+      return new Promise((resolve, reject) =&gt; {
+        if (task.taskId === canvasContext.taskId) {
+          canvasContext.renderControl.loadSceneData(localData, !!localData, !isPreview).then(() =&gt; {
+            resolve(null);
+          });
+        }
+      });
+    }
+
+    return new Promise((resolve, reject) =&gt; {
+      this.pointCloudLoader
+        .loadData(url)
+        .then(async (res: any) =&gt; {
+          if (task.taskId === canvasContext.taskId) {
+            canvasContext.renderControl.loadSceneData(res, !!localData, !isPreview).then(() =&gt; {
+              resolve(null);
+            });
+          }
+        })
+        .catch(_ =&gt; {
+          if (retry) {
+            this.loadPointCloud(task, canvasContext, false);
+          }
+          reject(_);
+        });
+    });
+  }
+
+  async loadPointCloudLOD</code></pre></div><div class="py-4"><p class="text-gray-600">src/worker/langlineTask.ts (Line 49:2 - Line 84:2), src/pages/tool/common/algorithm/pointCloud/imageMapping/plus/PlusImageProjectionAlgo.ts (Line 55:2 - Line 89:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn52" onclick="toggleCodeBlock('cloneGroup52', 'expandBtn52', 'collapseBtn52')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn52" onclick="toggleCodeBlock('cloneGroup52', 'expandBtn52', 'collapseBtn52')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup52"><code class="language-typescript text-sm text-gray-800">;
+
+          // 世界坐标转换成相对坐标
+          positionList = getCarPoseRelatedPosition(positionList, imageTask?.metadata?.pose);
+        }
+        let result;
+        // 线段在相机内的可视区域优化算法开发
+        if (geometryType === PointCloudShapeTypeEnum.CurveGeometry) {
+          result = globalOptimizePointListControl.getCameraCurvePointList(
+            positionList,
+            parameter,
+            geometryType
+          );
+        } else {
+          result = getCubeProjectionPointList(positionList, parameter);
+        }
+
+        return {
+          taskId,
+          imageSize: {
+            width: parameter.width,
+            height: parameter.height,
+          },
+          mappingPositionList: result,
+        };
+      });
+
+      return {
+        shapeData: item.shapeData,
+        imageMappingPointList,
+      };
+    });
+
+    return Promise.resolve(mappingResultList);
+  }
+}</code></pre></div><div class="py-4"><p class="text-gray-600">src/utils/index.ts (Line 150:2 - Line 183:4), src/pages/tool/common/global/historyCommandManager/HistoryCommandMessageResolver.ts (Line 711:5 - Line 741:23)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn53" onclick="toggleCodeBlock('cloneGroup53', 'expandBtn53', 'collapseBtn53')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn53" onclick="toggleCodeBlock('cloneGroup53', 'expandBtn53', 'collapseBtn53')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup53"><code class="language-typescript text-sm text-gray-800">const getFrameIndexRange = (arr: number[]) =&gt; {
+  if (arr.length === 1) {
+    return [
+      {
+        from: arr[0],
+        to: arr[0],
+      },
+    ];
+  }
+
+  const temp = [];
+  let i = 0;
+  let from;
+  let to;
+  while (i &lt; arr.length) {
+    if (arr[i + 1] - arr[i] === 1) {
+      if (!from) {
+        from = arr[i];
+      }
+      to = arr[i + 1];
+    } else {
+      temp.push({ from: from ?? arr[i], to: to ?? arr[i] });
+      from = arr[i + 1];
+      to = arr[i + 1];
+    }
+    i += 1;
+  }
+  return temp;
+};
+
+/**
+ * 对对象进行深拷贝
+ * @param obj
+ */</code></pre></div><div class="py-4"><p class="text-gray-600">src/utils/SegmentUtils.ts (Line 569:1 - Line 603:2), src/pages/tool/common/canvasContext/pointCloud/utils/SegmentUtils.ts (Line 6:1 - Line 40:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn54" onclick="toggleCodeBlock('cloneGroup54', 'expandBtn54', 'collapseBtn54')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn54" onclick="toggleCodeBlock('cloneGroup54', 'expandBtn54', 'collapseBtn54')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup54"><code class="language-typescript text-sm text-gray-800">export const createSegmentMesh = (pointsArray3d: Vector3[]) =&gt; {
+  const convexHull = new ConvexHull().setFromPoints(pointsArray3d);
+
+  const { faces } = convexHull;
+
+  const verticesList = [];
+
+  for (let i = 0; i &lt; faces.length; i++) {
+    const face = faces[i];
+    let { edge } = face;
+    do {
+      const { point } = edge.head();
+      verticesList.push(point.x, point.y, point.z);
+
+      edge = edge.next;
+    } while (edge !== face.edge);
+  }
+
+  const geometry = new BufferGeometry();
+
+  geometry.setAttribute('position', new Float32BufferAttribute(verticesList, 3));
+
+  const mesh = new Mesh(
+    geometry,
+    new LineBasicMaterial({
+      color: '#ffffff',
+      transparent: true,
+      opacity: 0,
+    })
+  );
+
+  (mesh as any).drawType = SEGMENT_NAME_KEY;
+  (mesh as any).isConvexHull = true;
+  return mesh;
+};</code></pre></div><div class="py-4"><p class="text-gray-600">src/utils/ObjectListUtils.ts (Line 303:23 - Line 333:6), src/utils/ObjectListUtils.ts (Line 259:26 - Line 287:7)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn55" onclick="toggleCodeBlock('cloneGroup55', 'expandBtn55', 'collapseBtn55')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn55" onclick="toggleCodeBlock('cloneGroup55', 'expandBtn55', 'collapseBtn55')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup55"><code class="language-typescript text-sm text-gray-800">(shape: ShapeData, sameShapeIdItemList?: ShapeData[]) {
+    const { frameDataMap } = useCanvasFrameStore();
+    const shapeFrameData = frameDataMap[shape.frameId];
+    if (!shapeFrameData) return [];
+    // 对象对应的相机名称 点云对象为undefined
+    const shapeCameraName = shapeFrameData.imageMapping[shape.taskId]?.cameraName;
+    let sameIdItemList = sameShapeIdItemList;
+    if (!sameIdItemList) {
+      const { uuid, frameId } = shape;
+      sameIdItemList = (await LabelResultDatabase.getTargetFrameShapeIdItemListByShapeId(
+        frameId,
+        uuid
+      )) as ShapeData[];
+    }
+    return sameIdItemList.filter(item =&gt; {
+      const itemFrameData = frameDataMap[item.frameId];
+      if (itemFrameData &amp;&amp; item.taskId) {
+        if (
+          shapeCameraName === itemFrameData.imageMapping[item.taskId]?.cameraName &amp;&amp;
+          shape.geometry?.type !== item.geometry?.type
+        ) {
+          return true;
+        }
+      }
+      return false;
+    });
+  }
+
+  /**
+   * 根据指定key 去重同一shapeId的
+   */</code></pre></div><div class="py-4"><p class="text-gray-600">src/utils/MathUtils.ts (Line 185:11 - Line 206:2), src/pages/tool/common/canvasContext/pointCloud/CanvasGroupControl.ts (Line 869:16 - Line 890:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn56" onclick="toggleCodeBlock('cloneGroup56', 'expandBtn56', 'collapseBtn56')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn56" onclick="toggleCodeBlock('cloneGroup56', 'expandBtn56', 'collapseBtn56')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup56"><code class="language-typescript text-sm text-gray-800">.forEach((vertex: Vector3) =&gt; {
+    minX &gt; vertex.x &amp;&amp; (minX = vertex.x);
+    minY &gt; vertex.y &amp;&amp; (minY = vertex.y);
+    minZ &gt; vertex.z &amp;&amp; (minZ = vertex.z);
+    maxX &lt; vertex.x &amp;&amp; (maxX = vertex.x);
+    maxY &lt; vertex.y &amp;&amp; (maxY = vertex.y);
+    maxZ &lt; vertex.z &amp;&amp; (maxZ = vertex.z);
+  });
+
+  return {
+    position: {
+      x: (minX + maxX) / 2,
+      y: (minY + maxY) / 2,
+      z: (minZ + maxZ) / 2,
+    },
+    rotation: {
+      x: 0,
+      y: 0,
+      z: 0,
+    },
+    size: {
+      x: maxX - minX,</code></pre></div><div class="py-4"><p class="text-gray-600">src/utils/ImageCanvasUtils.ts (Line 139:8 - Line 222:7), src/utils/ShapeUpdateUtils.ts (Line 110:11 - Line 193:6)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn57" onclick="toggleCodeBlock('cloneGroup57', 'expandBtn57', 'collapseBtn57')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn57" onclick="toggleCodeBlock('cloneGroup57', 'expandBtn57', 'collapseBtn57')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup57"><code class="language-typescript text-sm text-gray-800">,
+      });
+    } else {
+      deleteShapeOptionList.push(deleteHistoryItem);
+    }
+
+    const groupId = getGroupUuid(shape.uuid);
+
+    if (groupId) {
+      const groupShape = lodash.cloneDeep(LabelResultDatabase.findByUUID(groupId));
+
+      if (groupShape) {
+        let { objectUuids } = groupShape;
+
+        objectUuids = objectUuids.filter((objectUuid: string) =&gt; objectUuid !== shape.uuid);
+        objectUuids.push(toShapeData.uuid);
+        groupShape.objectUuids = objectUuids;
+
+        groupUpdateCommand.push({
+          command: CanvasHistoryCommandEnum.GROUP_CHILDREN_UPDATE,
+          uuid: groupShape.uuid,
+          shapeId: groupShape.shapeId,
+          taskId: groupShape.taskId,
+          frameId: groupShape.frameId,
+          options: {
+            from: lodash.cloneDeep(LabelResultDatabase.findByUUID(groupShape.uuid)),
+            to: groupShape,
+          },
+          isRemote: false,
+        });
+      }
+    }
+
+    // 获取帧的索引
+    const { frameIndex } = getFrameDataMap.get(shape.frameId);
+    frameIndexList.add(frameIndex);
+  });
+
+  let correctionUpdateCommandList = [];
+
+  if (![TaskFlowPhaseEnum.Label, TaskFlowPhaseEnum.Read].includes(currentLabelTaskMode.type)) {
+    shapeOptionList.forEach(shape =&gt; {
+      const oldShape = deleteShapeOptionList.find(
+        v =&gt; v.proEditToolTypeUuid === shape.proEditToolTypeUuid
+      );
+      correctionUpdateCommandList = LabelCorrectionDatabasePro.findByObjectUuid(
+        oldShape.uuid
+      ).reduce((list, v) =&gt; {
+        if (v.workflowTransferId === currentLabelTask?.workflowTransferId) {
+          const newCorrection = generateEmptyOption(
+            shape.taskId,
+            shape.options,
+            v.geometry.position
+          );
+
+          newCorrection.wrongType = v.wrongType;
+          newCorrection.geometry = cloneDeep(v.geometry);
+          newCorrection.checkedList = cloneDeep(v.checkedList);
+          newCorrection.changedTool = true;
+
+          const deleteCommand = {
+            command: CanvasHistoryCommandEnum.CORRECTION_PRO_DEL,
+            options: {
+              correctionData: v,
+            },
+          };
+          const addCommand = {
+            command: CanvasHistoryCommandEnum.CORRECTION_PRO_ADD,
+            options: {
+              correctionData: newCorrection,
+            },
+          };
+
+          LabelCorrectionDatabasePro.add(newCorrection);
+
+          list.push(deleteCommand, addCommand);
+        }
+
+        return list;
+      }, correctionUpdateCommandList);
+    });
+  }
+
+  return</code></pre></div><div class="py-4"><p class="text-gray-600">src/store/canvasActionBar.ts (Line 119:9 - Line 140:21), src/store/canvasActionBar.ts (Line 89:9 - Line 109:7)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn58" onclick="toggleCodeBlock('cloneGroup58', 'expandBtn58', 'collapseBtn58')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn58" onclick="toggleCodeBlock('cloneGroup58', 'expandBtn58', 'collapseBtn58')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup58"><code class="language-typescript text-sm text-gray-800">if (isSingle2D) {
+          list = list.filter((item: any) =&gt; {
+            return item?.hasRectBox || item.hasCuboidBox;
+          });
+        }
+        if (list &amp;&amp; list.length) {
+          num++;
+          const realList = list.map((enableItem: any) =&gt; {
+            const obj = { ...enableItem };
+            obj.groupNum = num;
+            return obj;
+          });
+          markToolList.push({
+            name: markToolItem.name || i18nT('default'),
+            list: realList,
+            toolLabel: num &lt;= groupKeyMaxNum ? `${isMac() ? '⇧' : 'Shift'}+${num}` : '',
+            toolNum: num,
+          });
+        }
+      });
+
+      // if (isSingle2D) {</code></pre></div><div class="py-4"><p class="text-gray-600">src/hooks/useShapeOrder.ts (Line 204:2 - Line 225:31), src/hooks/useShapeOrder.ts (Line 155:2 - Line 176:33)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn59" onclick="toggleCodeBlock('cloneGroup59', 'expandBtn59', 'collapseBtn59')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn59" onclick="toggleCodeBlock('cloneGroup59', 'expandBtn59', 'collapseBtn59')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup59"><code class="language-typescript text-sm text-gray-800">1;
+
+      if (from !== to) {
+        commandList.push({
+          command: CanvasHistoryCommandEnum.UPDATE_ORDER_INDEX,
+          uuid: shape.uuid,
+          shapeId: shape.shapeId,
+          taskId: shape.taskId,
+          frameId: shape.frameId,
+          isRemote: false,
+          options: {
+            from,
+            to,
+          },
+        });
+      }
+    });
+
+    return commandList;
+  };
+
+  const getBatchOrderChangeCommandList</code></pre></div><div class="py-4"><p class="text-gray-600">src/constants/constraint.ts (Line 24:1 - Line 57:13), src/utils/ValidateUtils.ts (Line 35:1 - Line 68:13)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn60" onclick="toggleCodeBlock('cloneGroup60', 'expandBtn60', 'collapseBtn60')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn60" onclick="toggleCodeBlock('cloneGroup60', 'expandBtn60', 'collapseBtn60')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup60"><code class="language-typescript text-sm text-gray-800">/**
+ * 运算符 start
+ */
+export const OPERATOR_GREAT_EQUAL = {
+  label: '&gt;=',
+  value: 'operatorGreatEqual',
+  operator: '&gt;=',
+};
+
+export const OPERATOR_GREAT_THAN = {
+  label: '&gt;',
+  value: 'operatorGreatThan',
+  operator: '&gt;',
+};
+
+export const OPERATOR_EQUAL = {
+  label: '=',
+  value: 'operatorEqual',
+  operator: '===',
+};
+
+export const OPERATOR_LESS_EQUAL = {
+  label: '&lt;=',
+  value: 'operatorLessEqual',
+  operator: '&lt;=',
+};
+
+export const OPERATOR_LESS_THAN = {
+  label: '&lt;',
+  value: 'operatorLess',
+  operator: '&lt;',
+};
+
+export const operatorList</code></pre></div><div class="py-4"><p class="text-gray-600">src/constants/constraint.ts (Line 115:4 - Line 135:4), src/pages/tool/common/canvasContext/pointCloud/constants/constraint.ts (Line 14:2 - Line 34:6)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn61" onclick="toggleCodeBlock('cloneGroup61', 'expandBtn61', 'collapseBtn61')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn61" onclick="toggleCodeBlock('cloneGroup61', 'expandBtn61', 'collapseBtn61')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup61"><code class="language-typescript text-sm text-gray-800">,
+  value: 'unitSegment',
+};
+
+export const UNIT_ANGLE = {
+  label: '°',
+  value: 'unitAngle',
+};
+
+export const UNIT_CENTIMETER = {
+  label: 'cm',
+  value: 'unitCentimeter',
+};
+
+export const UNIT_METER = {
+  label: 'm',
+  value: 'unitMeter',
+};
+
+export const UNIT_SECOND = {
+  label: '秒'</code></pre></div><!-- Add more clone groups for .txt format as needed         // Add more clone groups for .txt format as needed--></div></section><!-- Add more sections for other formats and clone groups as needed--></main><footer class="bg-white shadow mt-8 py-4"><div class="container mx-auto px-4 text-center"><p class="text-sm text-gray-600">This report is generated by jscpd, an open-source copy/paste detector.</p><p class="text-sm text-gray-600">jscpd is licensed under the MIT License.</p><a class="text-blue-500 text-sm" href="https://github.com/kucherenko/jscpd" target="_blank" rel="noopener noreferrer">View jscpd on GitHub</a></div></footer><script src="report/js/prism.js"></script><script>function toggleCodeBlock(codeBlockId, expandBtnId, collapseBtnId) {
+  const codeBlock = document.getElementById(codeBlockId);
+  const expandBtn = document.getElementById(expandBtnId);
+  const collapseBtn = document.getElementById(collapseBtnId);
+
+  codeBlock.classList.toggle('hidden');
+  expandBtn.classList.toggle('hidden');
+  collapseBtn.classList.toggle('hidden');
+}</script></body></html>
