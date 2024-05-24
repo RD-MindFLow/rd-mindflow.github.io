@@ -1,0 +1,84 @@
+---
+title: 技术爱好者周刊（第3期）
+tags: 周刊
+key: 10003
+author: 刘世豪
+---
+
+### [Triangulation by Ear Clipping(耳切法处理多边形三角划分)](https://www.cnblogs.com/xignzou/p/3721494.html) `转载`{:.success} `刘世豪`{:.info}
+
+Triangulation by Ear Clipping(多边形耳切法三角剖分)
+耳切法三角剖分是一种常用的多边形分解方法，其基本思想是在多边形内部选择一个顶点（被称为“耳朵”），然后连接该顶点与相邻的两个顶点，形成一个三角形。然后，将该三角形从多边形中删除，并重复这个过程，直到所有的顶点都被连接成三角形为止。 
+在进行耳切法三角剖分时，需要满足以下两个条件： 
+1. 选取的“耳朵”顶点必须是凸顶点（即内角小于180度）。 
+2. 选取的“耳朵”顶点与相邻的两个顶点构成的三角形不能包含多边形的其他顶点。 
+通过不断选取“耳朵”顶点并连接，最终可以将多边形分解为若干个不重叠的三角形。
+实际项目中可以通过三角剖分将凹多边形转换为多个凸多边形(三角形)以满足一些仅适用于凸多边形的场景。
+
+---
+
+### [深入浅出:Web Workers 与 SharedArrayBuffer 的性能优化](https://juejin.cn/post/7371422530958147595) `转载`{:.success} `崔鹏程`{:.info}
+
+Web Workers 与 SharedArrayBuffer 应用记录
+
+---
+
+### [Airbnb JavaScript 编码规范](https://github.com/yuche/javascript) `转载`{:.success} `徐堂鑫`{:.info}
+
+冗杂总是与魔鬼为伍，简洁则是高效忠实的仆从。如果你希望用更合理的方式写Javascript，不妨看下这篇文章。
+
+---
+
+### [如何封装一个超级好用的Hook](https://juejin.cn/post/7299849645206781963) `转载`{:.success} `郭晓旭`{:.info}
+
+以一个具体的例子介绍了Hook的作用和意义，以及如何封装Hook
+什么是hook
+利用 Vue 的组合式 API 来封装和复用具有状态逻辑的函数。
+Hook 函数与普通函数的本质区别在于是否具备“状态”。
+作用和优点
+分离代码，提高可维护性
+
+---
+
+### [DOMParser和XMLSerializer两个API简介](https://www.zhangxinxu.com/wordpress/2019/06/domparser-xmlserializer-api) `转载`{:.success} `李勇鲁`{:.info}
+
+DOMParser和XMLSerializer两个API简介
+
+---
+
+### [「前端曝光埋点上报」实现方案](https://cloud.tencent.com/developer/article/2270632) `转载`{:.success} `陆欣`{:.info}
+
+一个前端曝光埋点上报的实现方案。
+
+---
+
+### [Lodash已过时，试试它吧！](https://juejin.cn/post/7347279011653402659) `转载`{:.success} `郭兵宇`{:.info}
+
+目前 Lodash 时开始面临一些挑战，在这样的背景下，Radash 应运而生，以其现代化的特性和对TypeScript的友好支持，逐渐成为开发者的新宠。
+
+---
+
+### [fast-json-stringify](https://github.com/fastify/fast-json-stringify) `转载`{:.success} `车泽民`{:.info}
+
+在wasm尝试过程中，在尝试序列化的方案中使用它提高了一下序列化速度，数据量大的时候快，数据量少反而慢，但最后还是没用序列化方案，但这个库还是有些价值的感觉
+
+---
+
+### [face-api.js：一个在浏览器中进行人脸识别的 JavaScript 接口](https://juejin.cn/post/6844903668844593165?searchId=20240524104550F2C8F9080003AE8CD37A) `转载`{:.success} `张泰玮`{:.info}
+
+之前做人脸识别的时候使用的 faceapi，根据置信度进行业务上的实现
+face-api.js 是一个 JavaScript 库，它允许开发者在浏览器中实现人脸识别功能，而无需依赖服务器端处理，这意味着它可以在任何支持现代浏览器的环境中使用。
+该库基于深度学习技术，特别是卷积神经网络（CNN），来执行人脸检测、特征点定位和人脸识别。它利用了 tensorflow.js，这是一个用于在浏览器中运行机器学习模型的 JavaScript 库。
+face-api.js 包含了经过优化的模型，这些模型不仅体积小，而且设计有高效的推理过程。此外，它支持 GPU 加速，通过 WebGL 实现，从而在客户端设备上提供快速的人脸识别能力。
+
+---
+
+### [前端网页如何打开一个PC本地应用](https://juejin.cn/post/6844903989155217421?from=search-suggest) `转载`{:.success} `黄鹤翔`{:.info}
+
+在开发海外版官网过程中使用到 mailTo:// 协议唤起邮件应用，进而简单了解了一下如何唤起其他应用以及如何自定义一个URL协议
+
+---
+
+### [CSS 进阶之熟悉又陌生的 content](https://juejin.cn/post/6989017411261300750) `转载`{:.success} `李文娟`{:.info}
+
+除了可以清楚浮动、显示小图标、替换内容等，content竟然还有计数器【counter】功能，可自定义自动生成目录序号等
