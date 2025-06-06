@@ -1,0 +1,55 @@
+---
+title: 技术爱好者周刊（第49期）
+tags: 周刊
+key: 10049
+author: 刘世豪
+---
+---
+
+### [让 AI 更懂 Ant Design：MCP 协议在前端领域的落地实践](https://juejin.cn/post/7494106899646939173) `刘世豪`{:.info}
+
+通过 [MCP + system prompt] 方案实现让大模型可以理解我们的特定组件信息，让大模型可以生成更相关的代码
+
+---
+### [Don't lose user and app state, use Page Visibility](https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/) `黄鹤翔`{:.info}
+
+详细解释了为什么应该使用 visibilitychange，而不是 beforeunload/unload
+
+---
+### [vscode - 如何全部关闭页面不用弹出弹窗保存的](https://juejin.cn/post/7508969715432505382) `车泽民`{:.info}
+
+日常vscoder使用小技巧
+
+---
+### [响应式机制的未来：Signal 与现代前端框架](https://mp.weixin.qq.com/s/vAXRnEo9Kh7R-fcXzKwZPA) `李勇鲁`{:.info}
+
+Signal响应式机制的未来,充分介绍了前端发展至今的相关过程。
+
+---
+### [你是这样的 CSS，19个唯美的边框，我的项目又有"亮"点了！](https://juejin.cn/post/7029468162462580750) `谢宇翔`{:.info}
+
+一些酷炫的边框 需要可自取
+
+---
+### [【第3523期】程序员专属提示词工程实战手册](https://mp.weixin.qq.com/s/0F-WnXg82NY9yiO2Ss9c1Q) `贾博宇`{:.info}
+
+程序员专属提示词工程实战手册
+
+---
+### [three.js 大列表：技巧与窍门](https://discoverthreejs.com/tips-and-tricks/) `张伟达`{:.info}
+
+《three.js 大列表：技巧与窍门》，其中的一个建议
+If you need to make large groups of objects visible and invisible (or add/remove them from your scene), consider using Layers for best performance.
+
+---
+### [告别 substr() 和 substring()？更可靠的 JavaScript 字符串截取方法](https://mp.weixin.qq.com/s/Buw-vk2Q6tj69-N7lV22eg) `李文娟`{:.info}
+
+字符串截取方法 
+🌟推荐slice()：与数组的 slice() 方法行为一致，支持负索引，逻辑清晰，兼容性好
+substring()：参数交换和负数转换行为可能导致意外结果
+❌substr()：已弃用
+
+---
+### [可信实验白皮书系列01：从0到1的方法论与实践指南](https://mp.weixin.qq.com/s/goYuFb1SdpZcoPci1lsosA) `崔鹏程`{:.info}
+
+很好的可信实验指南
