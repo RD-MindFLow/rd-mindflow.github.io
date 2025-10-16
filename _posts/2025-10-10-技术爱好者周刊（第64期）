@@ -1,0 +1,48 @@
+---
+title: 技术爱好者周刊（第64期）
+tags: 周刊
+key: 10064
+author: 谢宇翔
+---
+---
+
+### [把 Canvas 放到 WebWorker 中去绘制？想都不敢想有多爽！ ](https://mp.weixin.qq.com/s/bUY0xxOfIN2UZVbvnAEgvA) `陆欣`{:.info}
+
+transferControlToOffscreen api介绍
+
+---
+### [6 种浏览器跨窗口通信方案 - 从实际案例出发](https://juejin.cn/post/7379121513420308517) `刘世豪`{:.info}
+
+浏览器各种跨窗口通信方案
+
+---
+### [1.8w字解析面向对象在软件工程中的应用](https://mp.weixin.qq.com/s/EkMK_xuLoAHuI--65trynw) `李勇鲁`{:.info}
+
+这篇文章系统阐述了面向对象（OO）思想在软件工程中的核心价值与应用体系。其从编程语言发展史切入，厘清了面向对象与UML、软件工程及领域驱动设计（DDD）等概念的关系，并强调了面向对象分析（OOA）与设计（OOD）的区别与重要性。
+文章重点介绍了用例建模方法、OOA的静态与动态建模过程（包括挖掘深层模型），以及OOD的职责驱动设计模式（GRASP）。最终构建了一个从理论到实践的完整知识框架，旨在帮助研发人员深刻理解并有效运用面向对象方法，以应对复杂的软件系统开发。
+
+---
+### [Reading vuejs/core-vapor](https://ubugeeei.github.io/reading-vuejs-core-vapor) `贾博宇`{:.info}
+
+本文是了解 Vapor Mode （Vue.js 的下一代实现）实现的指南。
+
+---
+### [一文全解析：AI 智能体 8 种常见的记忆（Memory）策略与技术实现](https://mp.weixin.qq.com/s/29SXiWyRgIZNGgpY3E0jdw) `崔鹏程`{:.info}
+
+AI 智能体 8 种常见的记忆（Memory）策略与技术实现
+---
+### [一文搞懂 | 大模型为什么出现幻觉？从成因到缓解方案](https://juejin.cn/post/7527108517720883252?searchId=2025092611103032544F9022F91CAC975B) `李果然`{:.info}
+
+在LLM被大规模应用于生产环境的当下，幻觉问题所带来的潜在危害已经从学术挑战转变为现实风险。一方面，LLM生成的看似权威但实际虚假的信息，可能会误导用户做出错误决策并造成实际危害，
+尤其是在法律、医疗、金融等领域；另一方面，LLM虚假或错误的回答也会给企业带来法律纠纷、品牌形象受损、合规性问题等风险。
+目前，“清朗·整治AI技术滥用”专项行动明确指出AI产品要严格管控“AI幻觉”问题。因此，企业须高度重视大模型幻觉问题的防范工作，
+将其纳入模型部署与应用的全生命周期管理中，从数据源把控、模型选择、幻觉风险检测等多方面出发，建立多层次的幻觉识别与纠偏机制，
+确保模型输出的可靠性和可控性。
+
+---
+
+### [using ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/using) `车泽民`{:.info}
+
+using在js中也有了
+
+---
